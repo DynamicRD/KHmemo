@@ -1,0 +1,84 @@
+파일입출력과 서버스트림
+
+웹시스템
+프로토콜://도메인 네임
+
+클라이언트-서버 구조
+ServerSocket ss = new Socket (IP,port)
+ss->inputs,outputs <->보조스트림
+
+https://www.naver.com:port
+소켓통신을 모르는 고갱님들을 위해 만든 html(gui)방식
+html은 사실 비트로 주고받는다
+
+클라이언트는 http 페이지 요청을 서버한테 함
+서버는 html 비트를 보내서 
+
+전송하려며누 serializable 있어야함
+
+html의 클래스방식
+<Student>love</Student>
+GUI클래스는 화면에 띄우는 내용 기능 (content)
+
+HTML주요 태그들 
+<h1>,<h2>,''',<h6>:	블록에 대표적으로 주는 제목 태그
+	<h1>(교실), 그외엔 각종 구성요소	
+	스타일시트라는 클래스 속에 각종 기능들이있다(Object 같은거?)
+<p>		:	문단 태그
+			글자의 모든 거시기를 때림
+			블록영역을 설정해서 전부 때릴수있음
+<br>		:	줄바꿈 태그
+<strong>		:	검색엔진의 대상이 됨
+<b>		:	강조(굵게 만듦)
+<em>		:	이탤릭체(강조)
+<i>		:	이탤릭체
+<u>		:	밑줄 태그
+<del>		:	취소선태그
+<small>		:	작게 태그
+mark하이라이트 sup위첨자 sub아래첨자
+<img>		:	이미지 태그
+<a>		:	앵커태크 누르면 딴 페이지로 감
+<table>		:	테이블 태그
+ul비순서형목록 ol순서형목록태그
+<form>		:	고객이 서버에 보낼때 쓰는 태그
+
+HTML		:	웹페이지의 내용과 구조를 정의
+CSS		:	웹페이지의 디자인과 색상을 정의
+자바스크립트	:	정적인 웹페이지를 동적으로 만들어줌 (이벤트 연산함수를 걸면)
+
+div(division)	: 	배치에 사용하고 스타일을 여러개 사용하기위해서 사용
+			여러개의 클래스를 내식구야 하고 묶어준다
+			그룹화를 시켜서 배치하거나 스타일을 적용하고 싶을때
+
+패치		: 	플렉스?
+//-------------------------------
+html 비주얼 스튜디오: extenstions :	auto rename code,auto close tag,bracket pair color,css peek
+				html css support,IntelliSense for CSS class names,HTML to CSS autocompletion
+v1				PHP IntelliSense(php와 나나벨 하면 좋다?),ㅣㅑㅍㄷ ㄴㄷㄱㅍㄷㄱ
+	Prettier - Code formatter: ctrl+, format on save 체크
+
+<!DOCTYPE html> <!-- HTML5 문서 타입을 선언 -->
+<html lang="en"> <!-- HTML 문서 시작, 언어는 영어로 설정 -->
+<head> <!-- 문서의 머리 부분 시작 -->
+    <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 웹 디자인을 위한 뷰포트 설정 -->
+    <title>Document</title> <!-- 브라우저 탭에 표시될 제목 설정 -->
+</head> <!-- 머리 부분 끝 -->
+<body> <!-- 문서의 본문 시작 -->
+</body> <!-- 본문 끝 -->
+</html> <!-- HTML 문서 끝 -->
+
+자바스크립트 기능을 바디 마지막에 둬야함,딴데 넣으면 이벤트 처리를 위해서라고 한다
+
+CGI와 스크립트 언어
+RGB는 24비트
+이미지는 비손실 압축과 손실 압축이 있다
+
+2장
+HTML5와 기본태그
+html은 엔터를 써도 줄바꿈 안됨 <br>사용
+표현 잘 안되면 엔티티 사용 ( <,>
+
+h1은 블록태그라서 공간을 하나 차지한다
+그래서 배경색깔같은거 설정가능(div,패러그램,form,table등)
+그 외의 태그는 인라인 태그다

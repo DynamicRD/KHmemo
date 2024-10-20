@@ -1,0 +1,58 @@
+
+부모 객체참조변수는 자신이 포함된 영역가져간다.
+자기 영역이 있는(업캐스팅)하는 상황에만 쓰임 
+대상체
+Dog dog = new Dog();
+Animal a = dog;
+a는 자식 객체를 호출할수 없지만 오버라이딩은 예외다(다형성)
+
+자부관계는 될수도 있고 안될수도 있다.
+강제형변환을 하면 될수도 있다(다운캐스팅)
+부모가 자식으로부터 업캐스팅받은변수면 가능함
+부모가 업캐스팅으로부터 받은게 아니고 순수자기객체면 불가능
+
+Dog d = (Dog) a
+r = new Shape( ); //불가능
+
+부모[] 부모변수 = new 부모[] {new 자식1( ),new 자식2( ),new 자식3( )};
+for(i;i<4;i++)
+{
+	부모변수[i].휘둘러();
+}
+
+업캐스팅:상형형변환
+
+부모 매개변수 자리에 자식 객체참조변수도 업캐스팅으로 들어올수있다.
+
+instanceof(비교연산자):	
+
+부모타입 instanceof 자식타입: 부모가 자식타입으로 다운캐스팅 가능한지 물어봄
+true면 다운캐스팅 하면 대입 가능
+
+종단 클래스(final class): 부모가 되기 싫은 클래스(상속을 시킬수 없음),상속 받을수는 있다
+
+상수화 팁: 	값이 계속 변하는 숫자를 상수로 바꾸는게 좋음(PI)	
+상수:		가독성과 디버깅을 최우선으로 친다.
+
+has a? is a?
+
+상속으로 가지면 is a 관계, 구성으로 가지면 has a 관계
+구성: 	멤버변수가 다른 클래스의 객체타임으로 멤버변수로 가지고있다.
+기본 라이브러리(scanner)등은 상속하지 마라
+
+멤버변수가 배열일때 get배열( ) [i]
+
+배열을 ArrayList로 바꾸는 방법
+List<String> list = Arrays.asList(deck.getCardDeck());
+
+ArrayList<String> number;
+
+type = (ArrayList<String>) Arrays.asList("♣","◆","♥","♠");
+
+ArrayList 객체배열에서 정렬하는 방법
+Collections.sort(stList, (s1, s2) -> Integer.compare(s1.getNo(), s2.getNo()));
+
+역정렬
+Collections.sort(stList, (s1, s2) -> Integer.compare(s2.getNo(), s1.getNo()));
+
+1,2,3,4,5,6,8,9,10,11,12,13

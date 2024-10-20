@@ -1,0 +1,57 @@
+ipconfig:		자신의 ip 확인, /all을 붙이면 더 자세한정보
+
+자바스크립트:	자바랑 다른 스크립트 언어
+
+자바 특징:	1.객체지향적인,
+		2.인터프리터와 컴파일러가 같이 있음
+		3.멀티스레드를 지원
+
+자바어플리케이션:	독립적 실행가능한 일반 응용프로그램
+
+Hello.java -------javac---> Hello.class ----------java(JVM)---> 화면실행
+자바프로그램  컴파일러     바이트(중간)코드    인터프리터
+
+바이트코드만 있으면 어떤 운영체제건 실행가능
+
+컴파일러:		전체프로그램을 한번에 번역
+인터프리터:	한문장씩 하나씩 번역해서 실행(; 찍는거)
+
+Java SE		:응용프로그램
+Java EE		:웹프로그램
+Java ME		:모바일프로그램
+
+Java FX 		:자바 딸깍용 웹 자바 클라이언트 플랫폼
+
+IDE: 		종합개발툴
+
+https://docs.oracle.com/en/java/javase/21/docs/api/index.html
+:자바 api, 기능들 다 있음
+api		:요리의 레시피
+
+변수:		자바에선 8가지 종류가 있음
+	정수 4byte,실수 8byte,논리형  1bit,문자 2byte,       객체  4byte,
+	0             0.0	    false	        0	('\u0000')	null	
+카멜표기법:	띄어쓰기 대신 대문자 사용
+스네이크표기법:	언더바 _ 사용
+상수는 대문자로만 사용함
+
+import java.util.Scanner;
+Scanner scan = new Scanner(System.in);
+ctrl + shift + O =>자동으로 import 만듦
+클래스를 객체로 만듦, 인스턴스화
+
+클래스는 자바와 같은 객체 지향 언어의 기본적인 빌딩 블록
+클래스들이 모여서 하나의 자바 프로그램이 된다.
+클래스는 대문자로 시작한다
+상수는 모두 대문자에 스네이크표기법을 쓴다.
+
+상수를 지정하는 지정자 final
+final int X = 100;
+
+""+x+" + "+y+" + "+z+" = "+sum+" 입니다"
+
+문자열변수 String (자바에선 클래스)
+원래는 String arr = new String("Hello");
+scanner.nextLine() 이 제일 좋다
+scanner.next() 은 버퍼를 남김
+

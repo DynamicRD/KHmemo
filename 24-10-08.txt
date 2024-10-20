@@ -1,0 +1,90 @@
+파일 입출력
+:DB가 출시되기전에 자주 쓰던 개념
+
+스트림: 		순서가 있는 데이터의 연속적인 흐름(1바이트로 가는방식)
+리더라이트:	스트림인데 2바이트로 전송
+
+바이트스트림:	inputStearm,OutputStream
+문자스트림:	Reader,Writer
+		32비트 공간을 소지해서 int
+
+read( )메소드: 	입력스트림으로부터 1바이트를 받고 int(4byte)타입으로 리턴, 4바이트중 끝 1바이트만 데이터가 들어있음
+		"abcd"는 4번 읽어야함, 다 읽으면 -1을 반환,int
+
+		While(true)
+		{
+		int data = read( );
+		}
+
+
+문장은 2바이트를 받는다. 
+read(char[ ] cbuf):	계속 읽는 배열
+
+오버라이딩:	,매개변수,함수명,(예외처리,접근제어자->영역이 더 커버리면 괜찮다)
+
+엔터키(13,10)	:	\t \r
+
+하드에 있는 파일들은 입력스트립(inputSteamReader), 처리스트림
+보조스트림:	읽어오는값을 속도개선을 해준다,버퍼는 완충작용을 해준다.
+		저장장소의 확장과 속도처리,읽고쓰는 편리 개선 ex)Scanner,println
+		Scanner sc = new Scanner(System.in)	
+		System.in이 키보드와 연결된 inputStream 
+		드라이버
+1초/1Hz:	컴퓨터가 1초에 한번 계산주기
+
+DataInputStream dataset = new DataInputStream(new FileinputStream("data.bin"));
+int i = dataset.readInt( );
+
+file은 읽는순서를 쓰는순서와 맞춰줘야함
+
+PascalValue = 파스칼 표기법
+pascalValue = 카멜표기법
+pascal_value= 스네이크 표기법
+pascal-value= 케밥표기법
+iPasclValue  = 헝가리안표기법
+
+		fis = new FileInputStream("D:\\JavaTest\\chapter15\\src\\kr\\co\\khedu\\file_reader\\test2.txt");
+			dis = new DataInputStream(fis);
+			
+//			dos.writeInt(100);
+			int iData = dis.readInt();
+//			dos.writeDouble(123.45);
+			double dData = dis.readDouble();
+//			dos.writeChars("abc");
+			String sData = dis.readLine();
+			System.out.println(iData);
+			System.out.println(dData);
+			System.out.println(sData);
+
+버퍼스트림: 속도개선
+		버퍼에다 써놓고 완충작용을 해준다
+		read write inputSteam outputStream
+FileReader fr = null;
+BufferedReader br=null;
+FileWriter fw = null;
+PrintWriter pw = null;
+
+변환장치
+
+바이트스트림	-> InputSteamReader	 ->문자 스트림
+문자스트림	->OutputStreamReader	 ->바이트스트림
+
+읽을때는 reader로 읽는게 좋다
+ implements Serializable
+
+Path객체: 	경로를 받아서 객체를 반환
+File객체:		파일을 조작하고 검사하는 코드작성 도와주는 클래스
+canExcute	파일실행여부
+
+파일에는 타입과 유저명이 읽을수 있는지 실행할수 있는지 그룹에있는지 여부등
+
+
+
+ArrayIndexOutOfBoundsException
+
+
+
+
+씨리얼라이저블하면 다른사람한테 코드를 보낼 수 있다.
+
+x

@@ -1,0 +1,162 @@
+함수형 프로그래밍
+
+람다식,Steam API, 컬렉션API향상, forEACH()메소드
+
+컬렉션프레임워크:	배열에 대한 단점들을 개선시키는 방향으로 만든 프레임워크로, 5종류가있음
+프레임워크:	소프트웨어 개발에서 특정 작업을 수행하기 위해 미리 만들어진 구조와 도구의 집합
+List:		배열과 같음, 인덱스로 구분하고 삽입삭제수정검색 정렬등의 라이브러리가 제공된다
+Vector:		위와 같은데 동기화 처리가 가능함
+Set:		위와 기능은 같은데, 중복이 허용이 안된다. iterator로 값 가져옴
+Map:		Key,Value가 가능, key는 중복안되는 객체만 가능하고, value는 중복가능, iterator로 변형가능
+Stack: 		FILO구조
+Quene:		FIFO구조
+
+선언적 프로그래밍:		해야할 일만 요청하면 결과를 준다. 구조나 과정 안필요함
+
+Stream은 향상된 for문을 생각해라
+
+list.stream( ).filter( 람다식 )
+Predicate는 선언하다, boolean값을 리턴함
+
+짝수만 뱉는 식
+Stream <Integer> stream2 = list1.stream().filter(data -> data%2 == 0);
+new Predicate<Integer>
+
+오버라이딩 추상메소드를 보고 
+람다식은 임시객체를 구현해서 만들어서 오버라이딩한 함수이다,하나의 추상메소드만 있어야한다
+인터페이스로 만든 임시객체가 있어야하고, 추상메소드가 1개 있어야한다.
+
+Ctrl Space
+
+일급함수:		함수를 변수에 저장하고, 매개변수로 받을 수 있다., 함수를 반환할 수 있다. 
+람다식: 		인터페이스를 구현한 객체에서 추상메소드를 오버라이딩해서 만들어진, 그 인터페이스는 추상메소드가 한개
+		그걸 간단하게 구현한 식
+
+람다식에서 매개변수가 없으면 소괄호를 하나 넣어야함
+	한문장이면 { } return 생략함
+	출력식이면 return 생략함
+		( ) -> { 식 }
+
+//1단계
+		MYaccept myAccept = new MYaccept();
+		list1.stream().filter(data-> data %2 == 0).forEach(myAccept);
+
+		
+//2단계(임시객체)
+		Consumer<Integer> consumer = new Consumer<Integer>() {
+			
+			@Override
+			public void accept(Integer data) {
+				System.out.println(data+" ");
+			}
+		}; 
+		list1.stream().filter(data-> data %2 == 0).forEach(consumer);
+	
+//3단계(매개변수안에서 작성: 임시객체)
+		list1.stream().filter(data-> data %2 == 0).forEach(new Consumer<Integer>() {
+			
+			@Override
+			public void accept(Integer data) {
+				System.out.println(data+" ");
+			}
+		});
+
+//4단계(람다식)
+		list1.stream().filter(data-> data %2 == 0).forEach(data -> System.out.println(data));
+
+	
+//5단계(함수선언)
+		list1.stream().filter(data-> data %2 == 0).forEach(System.out::println);
+//------------------------------------------------------------------------------------------
+동작 매개 변수화
+매개변수에 임시 객체,익명클래스,람다식을 전달함
+//1단계
+//		MyStudentPredicate msp = new MyStudentPredicate();
+//		for(Student data: list)
+//		{
+//			if(msp.test(data))
+//			{
+//				list2.add(data);
+//			}
+//		}
+//		for(Student data: list2)
+//		{
+//			System.out.println(data.toString());
+//		}
+		
+		//2단계 임시객체
+//		StudentPredicate sp= new StudentPredicate() {
+//			
+//			@Override
+//			public boolean test(Student student) {
+//				return student.getScore() >= 80;
+//			}
+//		};		
+//		list2=filterStudent(list, sp);
+//		for(Student data: list2)
+//			{
+//				System.out.println(data.toString());
+//			}
+//		}
+		
+		//3단계 임시객체 매개변수
+		/*list2=filterStudent(list, new StudentPredicate() {
+			
+			@Override
+			public boolean test(Student student) {
+				return student.getScore() >= 80;
+			}
+			});
+		for(Student data: list2)
+		{
+			System.out.println(data.toString());
+		}
+	}*/
+		
+		//4단계 람다식
+		list2=filterStudent(list,student->student.getScore() >= 80);
+		for(Student data: list2)
+		{
+			System.out.println(data.toString());
+		}
+		}
+	
+	
+	
+	private static List<Student> filterStudent(List<Student> list,StudentPredicate sp) {
+		List<Student> list2 = new ArrayList<>();
+		for(Student data :list) {
+			if(sp.test(data)){
+				list2.add(data);
+			}
+		}
+		return list2;
+	}
+//--------------------------------------------
+함수형 인터페이스		반환형		추상메소드이름
+Supplier<T>		T 		get( )
+Consumer<T>		void		accept( )
+BiConsumer<T,R>		void		accept( )
+Predicate<T>		boolean		test( )
+BiPredicate<T,R>		boolean		test( )
+Function<T,R>		R		apply( )
+BiFunction<T,R,U>		R		apply( T,R)
+UnaryOperator<T,T>	T		apply( )
+BinaryOperator<T,T,T>	T		apply( )
+
+람다식에서 메소드 참조로 변형
+s->System.out.println(s);
+System.out::println;
+
+(Car car) -> Car.getPrice()
+Car::getPrice
+
+s->this.isValidName(s)
+this::isValidName
+
+클래스 ,멤버함수면 변환 가능
+
+list = new ArrayList<>(set);
+                	Collections.sort(list);
+                	printIDArray(list);
+                	set = new HashSet<>(list);

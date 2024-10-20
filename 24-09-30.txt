@@ -1,0 +1,63 @@
+Calendar 클래스
+추상클래스, 싱글톤방식 
+Calendar d = Calendar.getInstance( );
+		System.out.println(d.get(Calendar.YEAR)+"년");
+		System.out.println(d.get(Calendar.MONTH)+1+"월");
+		System.out.println(d.get(Calendar.DATE)+"일");
+		System.out.println(d.get(Calendar.DAY_OF_WEEK)+"요일");		//일요일 == 1
+
+		public static final String[] DAY_WEEK = {"","일","월","화","수","목","금","토"};
+		System.out.println(DAY_WEEK[d.get(Calendar.DAY_OF_WEEK)]+"요일");
+
+정렬 Integer로 하고
+Arrays.sort(list);
+Arrays.sort(list,Collections.reverseOrder());		//역정렬
+
+//==================================================
+예외처리
+
+1.오류를 막은게 아니라 전체 시스템이 멈추는걸 막음
+2.예외처리를 받으면 수정가능, 극단적인건 못함
+
+예외를 던져서 받는다
+try catch
+
+       	 try	{
+	    }catch (ArithmeticException e	//예외클래스변수){
+	    	//e.printStackTrace();	//오류 원인 출력
+		result = 10;		//기본값
+                }finally{
+					//자원반납
+	    } 
+예외처리의 최고 부모는 Exception
+
+finally는 예외처리를 못잡아서 프로그램이 멈춰도 무조건 실행될수있게 한다.
+자원반납을 쓰는게 제일 좋다.
+
+예외처리할때 감추거나, catch를 많이써서 원인을 잡거나 instanceof 사용
+
+1. try catch finally를쓴다
+2. finally에 자원반납을 한다
+3 catch에 가장 강력한 exception을 쓰고 뭐할지 결정
+4.문제된것만 try로묶는다
+
+
+	try {
+			fio = new FileInputStream("data.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				fio.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+		}
+
+ArithMeticException		0으로 나누는 경우
+NullPointerException		널객체를 참조할때 발생
+ClassCastException			부적절하게 클래스를 형변환 하는경우
+ArrayIndexOutOfBoundsException	배열을 참조하는 인덱스가 잘못된경우
+
+throws 쓰면 날먹 가능

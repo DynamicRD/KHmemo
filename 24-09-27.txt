@@ -1,0 +1,124 @@
+api Application program interface:	표준화를 제공할테니 그거대로 프로그램을 작성하라
+
+도메인:			도메인명은 ip주소 대신이고, 세계에 유일하다 
+패키지:			폴더기능+도메인명을 역으로 한다,폴더명+유일한클래스라는거+인지도까지
+클래스의 진짜 이름:	kr.co.khedu.student
+			Student.java ---> Student.class---->로딩(메소드)---->public static void Main이 있는 클래스를 찾음
+			---> stack영역에서 작동시켜서 프로그램시작
+
+			kr.co.khedu.student.Student.java
+
+패키지는 내장패키지와 사용자 정의 패키지가 있다. 내장은 import해서 가져옴
+원칙적으론 외부패키지 쓰려면 패키지명도 다 붙여야함
+
+Lazy Class Loading:		요청받을때 클래스파일을 JVM에 로드
+프리로딩:			다불러놓음
+
+주로 쓰는 자바 api패키지
+java.io	 	입출력시스쳄
+java.lang		자바프로그램에 필수적인클래스
+math,net,nio,sql,util,
+
+오버라이딩은 상속만, 오버로딩은 아무대나
+
+함수에 final 쓰면 오버라이딩 하지마라
+클래스에 final쓰면 상속하지마라 
+
+
+상속받으면 this는 자식의 것
+equals는 반드시 오버라이딩
+equals는 클래스 만들면 반드시 오버라이딩 해야한다.
+@Override
+	public boolean equals(Object obj) {
+		Student stu = null;
+		if(!(obj instanceof Student))
+			{
+				System.out.println("비교할 수 없는 객체를 보냈습니다.");
+				return false;
+			}
+		stu = (Student)obj;
+		if(no==stu.no&&name.equals(stu.name))
+		{
+			return true;
+		}
+		
+		return false;
+	}
+
+native : 자바가 c나 c++짜여진 코드를 그대로 쓰겠다
+
+해쉬코드:		메모리의 주소를 전달해줌
+		객체 무한정 늘릴수있음.
+	@Override
+	public int hashCode() {
+		return Objects.hash(no,name);
+	}
+
+컬렉션 프레임워크에서 equals와 hashcode쓴다
+
+equals toString hashCode 
+
+기본 자료형을 객체로 만들고 싶을 때 Wrapper 클래스
+Wrapper 클래스를 쓰면 숫자로 걱정은 없다
+Integer i2 = new Integer(100);
+""+숫자		---->문자열
+문자열을 숫자로 바꾸려면 
+int num = Integer.parseInt(str);
+//===========================================
+String클래스
+charAt:		지정된 인덱스에 있는 문자 반환
+compareTo:	
+final int      num 	     =	 10;
+	심볼릭상수	리터럴상수
+
+
+문자열을 분리시킬때 spilit
+System.out.println(data.indexOf("table"));
+
+StringBuffer
+String은 연산만 하면 새로 만들어짐 (heap영역이 점점 커짐)
+그래서 저장관리를 개선시킴(속도는 밀린다)
+객체를 생성하듯이 쓰면된다. 16byte
+insert(0,"수식"), 0번자리에 수식을 넣음
+
+Arrays.sort(arr)		정렬
+Arrays.binarySearch(arr,9)	9찾기
+Arrays.fill(arr,8); 		배열을 8로채운다.
+Integer[] array2 = {1,4,6,7,3,5,2,7,10,5};
+		Arrays.sort(array2,Collections.reverseOrder());	역정렬
+함수는 단일화 기능이어야한다
+
+toCompare을 implements 받으면
+정렬 역정렬
+Arrays.sort(arr)
+Arrays.sort(arr,Collections.reverseOrder());
+
+ArrayList에서는 
+Collections.sort(list);
+Collections.reverse(list);
+
+	//배열을 List로 변경
+	//List<Student> list = Arrays.asList(array);
+
+오버라이딩(정렬구현을위해서)
+	@Override
+	public int hashCode() {
+		return no;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		Student stu = (Student)obj;
+		return (no-stu.no == 0)?(true):(false);
+	}
+	@Override
+	public int compareTo(Student stu) {
+		return score - stu.score;
+	}
+//문자열 정렬
+@Override
+	public int compareTo(Student stu) {
+		return name.compareTo(stu.name);
+	}
+	
+
+ArratLis

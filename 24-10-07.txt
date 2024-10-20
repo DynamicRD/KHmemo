@@ -1,0 +1,60 @@
+함수지향은 함수만 말하면 알아서 해준다.
+인터페이스:	상수,정적메소드,추상메소드,디폴트메소드,프라이빗메소드로 구성
+		서로다른 클래스를 인터페이스로 통일화시킴
+
+람다식:		추상메소드를 오버라이딩시킨것
+
+동적매개변수화:	임시객체를 람다식으로 그걸 함수선언식으로
+
+익명클래스:	new 인터페이스명으로 구현
+
+스트림:		컬렉션프레임워크아니면 배열
+		스트림소스->연산1->연산2->연산3->종단연산
+
+1.배열이나 ArrayList를 Stream으로 만든다.
+	String 배열 name은 
+	Stream<String> stream = Arrays.stream(name);
+
+	그걸 list로 바꾸면
+	List<String>list2 = Arrays.asList(name);
+	Stream<String> streamList = list2.stream( );
+
+2.중간처리연산
+	Stream <String> stream2 =stream.filter(new Predicate<String>() {
+			@Override
+			public boolean test(String t) {
+				return t.startsWith("C");
+			}
+		});
+
+3.stream을 종단처리
+List<String> list = stream3.collect(Collectors.toList());
+
+map:	주면 성질을 다르게 바꿈(타입을 변환시켜줌)
+filter:	기준에 따라 거른다
+sorted:	정렬한다
+limit:   	개수제한
+forEach 	출력
+
+collect:	record set
+
+paralledlStream:  다중코어정렬
+
+//		Stream<Student> stream =list.stream();
+//		Stream<Student> stream2 = stream.filter(stu->stu.getScore() >= 60);
+//		Stream<Student> stream3 = stream2.sorted((o1, o2)-> o1.getNo()-o2.getNo());
+//		Stream<Integer> stream4 = stream.map(t->t.getNo());
+//		List<Integer> list2 =stream4.collect(Collectors.toList());
+
+
+stream은 SELECT문을 참고해서 만듦
+
+배열 -> Stream		Stream<String> stream = Arrays.stream(arr);
+ArrayList->Stream 		Stream<String> stream = list.stream;
+Stream->ArrayList		List<String> list = stream.collect(Collectors.toList());
+
+^ $:	캐럿은 시작 달러는 끝을 말한다.
+*:	0보다 큰 숫자
+
+예외처리를 직접 만든다
+문저 28,33쪽 참조
