@@ -1,0 +1,82 @@
+83번 줄맞춤 span
+86 1px solid black 순서
+91번 그냥 tr,th,td로 쓰기
+	caption에다가 thead/tbody/주면 좋다
+120번 th굵은 굵은 글씨때매 쓰면 안됨(strong이나 b)
+
+table>(tr>td*3)*4	3행 4열 표
+
+homework 대신 study work
+html에서 클래스는 여러개의 객체를 가져오는 개념(자바에는 없다)
+
+div는 스타일을 블록단위로 주고싶거나 움직이고 싶을떄'
+span은 인라인 단위로 묶고 가끔 움직임
+
+인라인 스타일
+내부스타일
+외부 스타일 : link css
+
+css는 위부터 시계방향으로 돈다
+margin: 0 auto 0 auto
+뒤에 2개 생략되면 앞에꺼 반복으로 생각한다
+margin: 0 auto
+
+스타일은 세미콜론, 오류나면 f12눌러서 찍어본다
+
+flex 5가지만 잘 쓰면 좋다
+오른쪽에 붙이려면 메인에다
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: left;
+    align-items: center;
+
+중앙은
+justify-content: center;
+align-items: center;
+
+우하단은
+justify-content: right;
+align-items: end;
+
+1.마크업을 잘 줘라
+2.div로 묶고 시멘트화
+3.배치는 flex로 써라(안되는건 position)
+
+details - summary는 써보는데 figure은 비추
+details summary 숨긴거 보기
+
+ruby글자위에 박혀있음
+
+display: inline-block
+인라인 구성품에 크기 너비들ㄹ을 바꿈
+
+datalist select
+radio:		3개중에 택1
+checkbox: 	복수선택
+
+button submit/reset form안에서만 사용가능
+
+get방식 : url form
+css 해당되는 마크업만
+//--------------------------
+4장 CSS
+모양을 꾸며준다
+id 클래스만 찾는다
+
+인라인의 폭은 컨텐츠로 결정한다, 왼오 마진 패딩만 가능
+CSS의 구조: 선택자,속성,속성값\
+h2 안에는 style이란 객체참조변수가있다
+위에서부터 우선순위
+id는 이름 중복 불가ㅓ
+자식 선택자 >
+마진끼리 닿으면 상쇄가 일어남
+
+가상클래스 선택자
+:붙여서 만든다, 
+구조 예시 
+:first-child
+:nth-child
+:last_child
+:hover
+163,164,191,192,210,235,236

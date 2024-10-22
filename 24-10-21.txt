@@ -1,84 +1,128 @@
-파일입출력과 서버스트림
-
-웹시스템
-프로토콜://도메인 네임
-
-클라이언트-서버 구조
-ServerSocket ss = new Socket (IP,port)
-ss->inputs,outputs <->보조스트림
-
-https://www.naver.com:port
-소켓통신을 모르는 고갱님들을 위해 만든 html(gui)방식
-html은 사실 비트로 주고받는다
-
-클라이언트는 http 페이지 요청을 서버한테 함
-서버는 html 비트를 보내서 
-
-전송하려며누 serializable 있어야함
-
-html의 클래스방식
-<Student>love</Student>
-GUI클래스는 화면에 띄우는 내용 기능 (content)
-
-HTML주요 태그들 
-<h1>,<h2>,''',<h6>:	블록에 대표적으로 주는 제목 태그
-	<h1>(교실), 그외엔 각종 구성요소	
-	스타일시트라는 클래스 속에 각종 기능들이있다(Object 같은거?)
-<p>		:	문단 태그
-			글자의 모든 거시기를 때림
-			블록영역을 설정해서 전부 때릴수있음
-<br>		:	줄바꿈 태그
-<strong>		:	검색엔진의 대상이 됨
-<b>		:	강조(굵게 만듦)
-<em>		:	이탤릭체(강조)
-<i>		:	이탤릭체
-<u>		:	밑줄 태그
-<del>		:	취소선태그
-<small>		:	작게 태그
-mark하이라이트 sup위첨자 sub아래첨자
-<img>		:	이미지 태그
-<a>		:	앵커태크 누르면 딴 페이지로 감
-<table>		:	테이블 태그
-ul비순서형목록 ol순서형목록태그
-<form>		:	고객이 서버에 보낼때 쓰는 태그
-
-HTML		:	웹페이지의 내용과 구조를 정의
-CSS		:	웹페이지의 디자인과 색상을 정의
-자바스크립트	:	정적인 웹페이지를 동적으로 만들어줌 (이벤트 연산함수를 걸면)
-
-div(division)	: 	배치에 사용하고 스타일을 여러개 사용하기위해서 사용
-			여러개의 클래스를 내식구야 하고 묶어준다
-			그룹화를 시켜서 배치하거나 스타일을 적용하고 싶을때
-
-패치		: 	플렉스?
-//-------------------------------
-html 비주얼 스튜디오: extenstions :	auto rename code,auto close tag,bracket pair color,css peek
-				html css support,IntelliSense for CSS class names,HTML to CSS autocompletion
-v1				PHP IntelliSense(php와 나나벨 하면 좋다?),ㅣㅑㅍㄷ ㄴㄷㄱㅍㄷㄱ
-	Prettier - Code formatter: ctrl+, format on save 체크
-
-<!DOCTYPE html> <!-- HTML5 문서 타입을 선언 -->
-<html lang="en"> <!-- HTML 문서 시작, 언어는 영어로 설정 -->
-<head> <!-- 문서의 머리 부분 시작 -->
-    <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 웹 디자인을 위한 뷰포트 설정 -->
-    <title>Document</title> <!-- 브라우저 탭에 표시될 제목 설정 -->
-</head> <!-- 머리 부분 끝 -->
-<body> <!-- 문서의 본문 시작 -->
-</body> <!-- 본문 끝 -->
-</html> <!-- HTML 문서 끝 -->
-
-자바스크립트 기능을 바디 마지막에 둬야함,딴데 넣으면 이벤트 처리를 위해서라고 한다
-
-CGI와 스크립트 언어
-RGB는 24비트
-이미지는 비손실 압축과 손실 압축이 있다
-
+HTML주요 태그(ui 클래스)
+<h1>~<h6>(제목태그):	검색엔진의 대상, 영역에 하나씩은 있어야한다
+			안에 택스트 태그들 다 쓸수 있다(<strong>은 무의미)
+<p>(문단태드)	:	애매모호할때 때리면 된다.<div>는 보자기 영역이다
+			블럭단위로 움직인다
+			<div>속엔 <p>들어가지만 반대는 안됨,<p>속엔 <p>도 못들어옴
+			이미지 넣을 수 있다.
+<br>(줄바꿈)	:	엔터
+<alt>(이미지 강조)	:	이미지 설명
+<a>(앵커)	:	링크 이동	
+<button>(이벤트)	:	누르면 이벤트 발생'
+<table>(표)
+<form>		:	서버에 사용자가 입력한데이터를 입력해야할떄
+			<button>의 submit과 reset기능으로 한다
 2장
-HTML5와 기본태그
-html은 엔터를 써도 줄바꿈 안됨 <br>사용
-표현 잘 안되면 엔티티 사용 ( <,>
+<!DOCTYPE html> : HTML5 표준 준수
 
-h1은 블록태그라서 공간을 하나 차지한다
-그래서 배경색깔같은거 설정가능(div,패러그램,form,table등)
-그 외의 태그는 인라인 태그다
+<head>:	정보
+<body>: 화면
+자식은 들여쓰기를 해라
+
+<a	  href=		"https://coolors.co" target=	"_blank">		coolors</a>
+   	  속성이름 	속성값			언다바 블랭크(셀프)
+클래스명   멤버변수	멤벼변수 값	멤버변수	멤벼변수값	컨텐츠
+
+이 상태로는 객체들을 구분할수없다
+1.id: 객체참조변수명을 준다(모든 태그에는 id를 줄 수가 있다)	:	CSS자바스크립트가 조정
+HTML은 다 public이다
+title:	태그에 대한 설명을 붙인것이 툴팁
+
+body는 큰 div이고 view port 기능이 된다.
+
+문단제목 만들기
+<h1>를 쓰면 기초적으로 폰트사이즈, 여백, 굵기등이 정해져 있다
+이거를 브라우저의 기본태그속성이라고한다(가장 확실한 제목내용)
+
+h${h$ 내용}*n	:	1부터 n까지 모두 생성
+
+엔티티 기능	:	쓸수없는 문자들 표현
+<pre>입력한 그대로 출력하기(바람직하지 않음)
+<hr>:	수평선 태그
+문자꾸미기는 직접 해봐야한다.(17p)
+<name>:		메타데이터 작성하기
+
+이미지 삽입
+<img>하고 ./ 탭
+img의 alt는 이미지 대체 이름
+<img>,<span>인라인 블록태그
+인라인은 한 줄을 딱 쓰는데 엇박자나게하는거 다 허용하지 않는다(라인을 깨버리지 않는다
+width height margin(요소의 외부 여백) padding(요소의 내부 여백)
+이미지는 width과 height를 조정할수 있음
+이미지는 인라인 블록기능으로 만든다	style="display: inline-block; 선을 유지하면서 틀을 깨지 않는다
+블록은 북막이 있다
+
+앵커태그
+ target="_blank"붙이면 새 창을 띄운다(기본은 _self == _top)
+
+<div>만들고 id를 준다음 레드에 style 하고 #이름 한다음 속성을 줄 수 있음
+
+마진상쇄(마진끼리 부딪히면 큰것만 유지한다)
+그래서 마진줄떄 한쪽만 준다(오른쪽과 아랫쪽만
+
+div는 스타일을 만들거나 이동할때 쓴다
+block은 전체라인을 다 차지한다(좌우로 누구 못온다 붙막)
+클래스는 .으로 호출
+id는 #으로 호출
+
+리스트
+ul은 순서가 없을떄	li
+ol은 순서가 있을때	li
+dl은 키값이 있을때	dt,dd
+
+81 83 86 91 94 119 120
+
+테이블의 구조
+<body>
+    <table>
+        <caption>버거 세트 가격</caption>
+        <thead>
+            <tr>
+                <th>종류</th>
+                <th>가격</th>
+                <th>용량</th>        
+           </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>치즈버거</td>
+                <td>4500</td>
+                <td>&nbsp;</td>        
+            </tr>
+            <tr>
+                <td>프라이</td>
+                <td>2000</td>
+                <td>중</td>        
+            </tr>
+            <tr>
+                <td>음료</td>
+                <td>1500</td>
+                <td>중</td>        
+            </tr> 
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>가격</th>
+                <th>7000</th>
+                <th>할인</th>  
+            </tr>
+        </tfoot>      
+    </table>
+</body>
+
+rowspan = "2"  세로 2줄을 합침
+colspan  = "3"  가로 3줄을 합침
+video,audio, control로 조정
+iframe:	페이지안에 유튜브 만들기
+
+div:2개 이상의 블록 인라인을 묶어서 블록에있는영역에 위치와 스타일을 주는것
+span:2개 이상의 인라인영역을 묶어서 공통적인 스타일을 주고싶을때
+
+시맨틱 태그
+div id 노가다를 하지 말고 그냥 header같은 이름을 직접 붙여버린다
+여러개 써도 괜찮은데 main은 하나만 ?써라
+header(머릿말):	전체 웹페이지 또는 section의 머리말, 제목이나 본문내용을 간단히 소개글
+section(장,절):	문서의 장또는 절, 하나의 웹페이지가 여러개 가지기 가능
+article(작은 기사):	본문과 관련있는 독립적인 글
+aside(부수적인긋):	본문에 벗어나지만 과녈ㄴ있는듯
+nav(하이퍼링모음):	footer(밑바닥)
