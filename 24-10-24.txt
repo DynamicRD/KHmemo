@@ -1,0 +1,51 @@
+input에서 name=서버에 가서 읽을 이름
+전부 객체참조변수
+id= (유일함)나는 css,이벤트 처리 받을거야
+class= (같이써도됨)나는 공동으로 css 이벤트 처리 받을거다
+name = (서버에서만)읽을 이름 form에서 쓸거다
+
+overflow:hidden 자료가 넘치면 감춤
+
+label for = " name"
+input type = "text" name="name" id="name"
+
+div는 여러개를 감쌀때 쓴다
+
+사이트 기본 베이스
+     *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: sans-serif;
+        }
+        a{
+            text-decoration: none;
+        }
+
+둥글게 border-radius
+
+line-height : 높이를 정해주면 글자는 그중간에 배치된다
+
+
+box-sizing을 해서 너비의 기준을 정한다
+default: 내용 영역
+border: 테두리 영역이 너비
+
+display,visability(공간은 있는데 숨김),opacity(흐리게 만든다)
+
+ div>img:nth-child(3)
+div내 img의 n번째 호출
+
+float는 배치 말고 감싸면서 배치하는 속성
+
+overflow 자식이 부모 영역을 넘어버림
+overflow hidden 감춘다
+
+list-style-type-none
+
+form
+	curd post,update,get,delete
+get 서버에게 달라,db에 넣을거 정해둠 ->post
+delete->primary key값을 줘야함 
