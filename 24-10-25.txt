@@ -1,0 +1,57 @@
+사이트 기본 베이스
+     *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: sans-serif;
+        }
+        a{
+            text-decoration: none;
+        }
+
+
+text-shadow문자 그림자
+오른쪽 아래쪽 블록 색상
+
+https://getcssscan.com/css-box-shadow-examples
+css box shadow 가져온다
+
+box-shadow
+
+transition 시간을 지연시킴
+animation과 @keyframes 여러가지 동작을 만든다
+transform: 모양을 변경하는속성 (skew 행주마냥 짠다)
+translate
+
+animation속성값
+(숫자s 숫자(반복) infinite
+<image "" style="animation: down linear(딱딱한느낌) 3s 5">
+@keyframes down {
+	0%, 100% { transform : translateY(0px);}
+	50% { transform: translateY(400px);}
+	}
+확 움직이게 하고싶면 cubic-bezier
+
+커서 모양 바꾸기
+//-------------------------------------------------------
+자바스크립트
+자바스크립트 이해하기
+
+자바스크립트는 	<script></script>로 내부스크립트 만들거나
+		<script src+"script01.js></script>로 외부 스크립트 만든다
+1.윈도우에서 하는 모든 동작(이벤트)를 잡을 수 있다.(찾는다)
+2.이벤트를 적용할 대상을 객체를 (id class name)으로 찾는다
+3.함수를 만든다 filter(임시객체) 동작(css)
+
+document.write <-다 없애고 새로운 창을 만들어서 띄움
+head부터 차례대로 실행
+onclick 	이벤트 멤버 함수 = "자바스크립트로된 이벤트 함수"
+
+태그를 붙이면?
+노드->객체,인스턴스
+
+이벤트리스너를 등록하면 핸들러(이벤트,연산함수,임시객체)도 등록해야한다
+
+자바스크립트에서 앵커를 잡고 리스너를 등록하고 핸들러를 쓰고 이름있는클래스, 임시객체, 람다식
