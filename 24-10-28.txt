@@ -1,0 +1,66 @@
+자바스크립트는 로딩떄문에 바디 맨 밑에 쓴다
+그래서 그냥 딥퍼를 쓴다
+
+이벤트
+onclick="함수명"; 사용한다
+
+함수 선언 방법
+function abc( ){
+        let num = window.document.getElement```("이름");	
+    }
+
+자바스크립트에서 배열(컬렉션프레임워크)로 들어옴
+   function changeColor(colorName){
+    	count++
+            let h1Array = window.document.getElementsByTagName("h1");
+            h1Array[0].style.color = colorName;
+            h1Array[0].textContent = colorName;
+            let size = (count%2===0) ? ("72px") : ("32px");
+            h1Array[0].style.fontSize = size;
+            h1Array[1].style.backgroundColor = colorName;
+        }
+
+템플릿 리터럴 방식
+window.alert('${price} 가격으로는 주문 불가');
+
+Math.floor();	소수점 내림
+Math.ceil();   	소수점 올림
+
+var 사용시 선언만 먼저 올라온다(호이스트)
+함수는 이름있는 함수만 올라온다(이름없거나 화살표(람다식)함수는 불가능)
+
+자바스크립트의 객체는 멤버변수와 멤버함수가 있다
+
+HTML의 최상위 객체는 window
+window의 전역객체 메서드
+alert
+prompt
+confirm
+eval
+parseInt
+parseFloat
+confirm은 true혹은 false 반환
+
+NaN	:	나 숫자로 표현할수 없어요하는 Number값
+Infinity 	:	무한대 Number
+
+Number, String, boolean, under
+
+배열과 Array 객체
+let arr = [10,20,30,40,50]
+
+배열객체
+concat
+filter	predicate와 비슷함
+indexof
+join
+pop
+push
+reverse
+shift
+slice
+sort	compareTo
+tostring
+unshift
+
+497 507 543 544

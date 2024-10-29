@@ -1,0 +1,61 @@
+String 객체
+charAt(i) : i번째 인덱스 문자
+slice(ix,iy) : ix부터 iy직전까지 문자열 바ㅑㄴ환
+split(s,limit): 문자열의 s를 ,로 바꿔 문자열을 분리하고 배열을 반환
+substr?(i,len): i번째 인덱스부터 len까지ㅡ이 문자열을 배열로 반환
+
+자료형 let,var,const가 있는데
+const가 제일 많이 쓰인다
+slice(1);
+
+향상된 for문	: 대신에 of를 사용한다
+
+Date객체
+
+쿼리문 curd
+쿼리 셀렉터
+
+form 화면에 보여주고싶으면 get, 싫으면 post
+콜백함수 setInterval
+
+let a = [10,20,30];
+let a = [];
+a[0[ = 10;
+let a = new Array(10,20,30);
+let a = new Array();
+let aObj = {멤버변수,멤버함수(3)};
+
+자바스크립트는 delete로 클래스 멤버변수 삭제가능
+
+for-in반복문
+of는 배열, 객체는 in
+
+자바스크립트에서 클래스 
+let person = new Object();
+person.name = "이름";하면 name 멤버변수 person에 생성
+
+자바스크립트에서 생성자
+public 이름이 아닌 constructer()
+
+DOM
+window	- document - html - head - title ---- text1
+		       |----- body - div ---- text2
+
+Dom객체 쿼리 셀렉트
+window객체 hitorty,url,size등
+
+웹시스템 관련 객체
+Array String Math Date 객체
+문서 객체모델의 객체
+브라우저 객체모델의 객체
+이벤트 객체
+
+<p id="ide"></p>
+document.getElementById("ide").innerHTML = "문장";
+
+회전목마
+부트스트랩 안쓰는게 좋다
+
+script 딥퍼 싱커 안쓰면 멈춘다
+defer: 바디 맨밑에 쓰는것과 똑같다
+async: 비동기처리(스레드를 만들어서 돌린다)

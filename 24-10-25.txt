@@ -44,10 +44,14 @@ animation속성값
 1.윈도우에서 하는 모든 동작(이벤트)를 잡을 수 있다.(찾는다)
 2.이벤트를 적용할 대상을 객체를 (id class name)으로 찾는다
 3.함수를 만든다 filter(임시객체) 동작(css)
-
-document.write <-다 없애고 새로운 창을 만들어서 띄움
+1.모든 listner를 이벤트로 등록함
+2.모든 document를 아이디를 찾는다
+3.모든 listnet를 핸들러 함수로 사용함
+document.write <-화면을 싹 지우고 실행한다
 head부터 차례대로 실행
 onclick 	이벤트 멤버 함수 = "자바스크립트로된 이벤트 함수"
+
+window,document,자바스크립트내장객체,event객체
 
 태그를 붙이면?
 노드->객체,인스턴스
@@ -55,3 +59,28 @@ onclick 	이벤트 멤버 함수 = "자바스크립트로된 이벤트 함수"
 이벤트리스너를 등록하면 핸들러(이벤트,연산함수,임시객체)도 등록해야한다
 
 자바스크립트에서 앵커를 잡고 리스너를 등록하고 핸들러를 쓰고 이름있는클래스, 임시객체, 람다식
+자바스크립트의 자료형
+정수형, 실수형: Number
+문자 : String
+부울형: Boolean
+undefined type: let a; 에서 선언되지않음 a의 값
+
+var은 이중선언되고, 영역을 뛰어넘어서 추천하지 않는다
+final 상수선언 const
+
+연산자
+A ** B	A의 B의 제곱
+
+비교연산자
+==	최대한 맞출수있으면 맞춘다 5 == "5"
+자바에서 쓰는느낌 받으려면 ===을 쓴다
+
+함수인데 앞에 뭐 없으면 window객체이다
+
+ number = window.prompt("숫자를 입력하세요","0"); 
+print() + scanner + 문자형으로 반환한다
+window.document.write("<p>number = "+number+"<p>")
+cls+println
+
+함수선언
+접근제어자 자료형 생까고 function으로 퉁친다
