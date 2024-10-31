@@ -1,0 +1,38 @@
+웹브라우저 엔진이 컴파일해준다
+크롬 엔진 V8
+
+웹시스템 관련 객체
+-Array String Math Date 객체
+-문서 객체모델의 객체-document
+-브라우저 객체모델의 객체
+-이벤트 객체->querySelector로 넣는다
+
+ addeevnetlistner, handler함수 
+
+innerHTML을 더 많이쓴다
+
+doucument.getElements는 배열로값이 들어온다
+
+HTML Elements
+<p> GeeksforGeeks </p>
+오프닝태그 컨탠트 클로징태그
+ ㄴ-----엘레멘트----------|
+객체로 만들면 엘레멘트가 노드가된다
+
+ArrayList<Student> list =
+	엘레먼트
+
+querySelectorAll로 찾으면 객체배열로줌
+querySelector로 찾으면 객체로 찾음
+
+form	:	form이라는 마크업은 form속의 모든 input값을 서버로 보낸다
+서버는 name만 읽을수 있다
+key값 name, value값 type
+
+get방식 : 길이에 제한이 있고 주소에 노출됨\
+
+next,prevSibling	:	앞뒤에 있는 형제
+
+서버는 체크박스를 배열로 잡는다
+
+select option은 selct에만 있는 기능이다

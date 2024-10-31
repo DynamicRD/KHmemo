@@ -1,0 +1,23 @@
+이벤트 리스너와 핸튿러
+click,mouseover,mouseout,wheel,load
+입력
+focus,blur,submit,reset,keydown,keyup
+
+자바에서 최고 상속까지 족보를 알려주는게
+자바스크립트에서는 프로토타입 체인이다.
+
+이벤트에서
+버블링 방식과 캡쳐링 방식
+자식-부모-조부모 순으로 이벤트 발생하면 버블링방식
+반대면 캡쳐링방식
+발생은 자식부터
+addEventListner("click",rotate);	//기본값 false 버블링
+addEventListner("click",rotate,true);	//true 캡처링
+
+프로파게션 : 버블링방식에서 자식 누를때 부모까지 걸리는걸 방지
+event.stopPropagation;
+
+beforunload : 새로고침하면 잃습니다.
+
+input required:반드시 입력해라
+input checked:뭐하나 눌려있음
