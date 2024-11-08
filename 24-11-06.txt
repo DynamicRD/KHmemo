@@ -1,0 +1,104 @@
+연산자
+deil,floor,round,trunc
+연산자
+=	같다
+<>,!=,^=	다르다
+
+변환함수
+to_char,to_date,to_number
+
+to_char  (숫자,'출력형식')
+0 9 ㅣ , .
+L999,999,999.99
+
+to_date
+YY MM DD HH24 MI SS dl
+
+to_number
+
+일반함수 
+NVL, DECODE, CASE
+NVL(컬럼,대체값) 첫번째 인자 값이 null이면 두번째 인자값으로 변경
+NVL2(컬럼,null아닌거 대체,null인거) 
+NULLIF(표현식1,표현식2)	1,2가 동일하면 NULL,다르면 1 반환
+
+DECODE함수 switch-case문
+
+===========================
+테이블
+NUMBER,VARCHAR2,DATE,BLOB
+
+테이블명 이상한 글씨 쓰지 마라
+무결성 제약조건
+primary key,unquie,forgein key,not null,check,default
+not null:		값을 무조건 넣어야함
+primary key:	무조건 넣고 중복되면 안됨, null금지
+unquie:		단 하나인키인데 null 허용(not null 조건 넣으면 primary key대체가능)
+forgein key:	다른사람한테 받아온 프라이머리키
+		비식별자 관계:	상대방의 프라이머리키를 받아서 멤버변수로 씀
+		식별자 관계:	상대방의 프라이머리키를 받아서 프라이머리키급으로 씀
+ 
+name,type,index_name
+
+--테이블 복사(제약조건은 복사가 안됨)
+desc employees;
+select count(*) from employees;
+create table emple02 as select * from employees;
+desc emple02;
+select count(*) from emple02;
+
+--제약조건을 추가해본다
+alter table emple02 add constraint emple02_id_pk primary key(employee_id);
+
+--제약조건 삭제하기 unique
+alter table emple02 drop constraint emple02_email_uk;
+--제약조건 검색
+select * from user_constraints;	--제약조건 다 보여준다
+select * from user_constraints where table_name = upper('emple02');
+
+ALTER TABLE로 테이블 구조 변경
+-ADD(컬럼명 자료형)절을 사용해서 새로운 칼럼을 추가한다
+-MODIFY(컬럼형 자료형)
+-DROP COLUMN
+-RENAME
+ 
+칼럼 변경할때 데이터값이 있으면 varchar2->number 수정을 막는다
+delete: 객체값만 비운다
+truncate: 구조만 남기고 삭제한다
+drop: 모두 삭제한다
+포린키가 참조중인 테이블은 truncate 할수 없다
+
+check (gender in ('M','W'))
+
+학생 성적 테이블을 만들어 봅시다.
+1.학번의 (숫자)데이터는 중복되거나 null값을 허용하면 안 되고
+2.이름은 문자데이터며 null값을 허용하지 않고
+3.국어, 영어, 수학 컬럼을 number 타입으로 가지고 모두 다 null값을 허용하지 않습니다.
+4.단, 국어,영어,수학 컬럼에 데이터를 넣지 않으면 기본값으로 0을 갖습니다.
+5.총점과 평균 컬럼은 기본값을 0을 갖습니다.
+6.학과코드는 학과 테이블에 학과 코드를 참조한다.
+7.학번/이름/국어/영어/수학/총점/평균/학과코드 이게 컬럼명이다.
+
+8.학과 테이블
+9.학과코드 데이터는 중복되거나 null값을 허락하지 않는다.
+10.학과명은 null값을 허락하지 않는다.
+
+11.학과코드/학과명
+12.샘플데이터 입력 :
+13.select 한 결과를 보여주시면 됩니다.
+
+무결성 제약조건
+NOT NULL,UNIQUE,PRIMARY KEY, FORGIEN KEY, CHECK ,DEFAULT, 
+
+NOT NULL 추가는 MODIFY로
+ ALTER TABLE EMP01 MODIFY SALARY NUMBER(10,2) NOT NULL;
+
+테이블에 내용을 추가 수정 삭제하기 위한 DML
+INSERT,UPDATE,DELETE
+D
+F W G H S O
+INSERT INTO 테이블명(컬럼) VALUES(컬럼값)
+DELETE FROM 테이블명 WHERE 
+UPDATE 테이블명 SET 컬럼=컬럼값
+
+ALTER TABLE 테이블명 MODIFY 칼럼명 NOT NULL; 

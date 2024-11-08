@@ -1,0 +1,33 @@
+브라우저 객체모델
+BOM Browser Object Model 웹브라우저가 제공하는 객체모델
+
+document	HTML문서객체
+history		방문기록을 가진객체
+location 		URL 정보를 가진 객체
+
+윈도우 열고 닫기
+open("#","_blank","width,height,left,top,resizable,location,scrollbats,status,toolbar")
+Feature값
+
+nw  = 윈도우 핸들
+window값만 다 알고있으면 다 조정할 수 있다.
+
+팝업창도 window.opener를 사용하면 윈도우 핸들값 이용가능
+
+async의 단점:	따로 실행해도 본문이 실행 안되면 날려먹는다
+defer는 본문 다 실행하고 실행함.
+
+setInterval(함수,1000) : 무한반복
+setTimeout(함수,1000): 1번실행
+
+innerWidth를 쓰면 창의 크기를 얻을 수 있다.
+
+padStart(2,'0'); 앞의 2자리를 0으로 채우기
+윈도우 이동 moveTo(),moveBy()
+자동스크롤 scrollTo(),scroolBy()
+
+location객체
+자바스크립트에서 누르지 않고 맘대로 창을 변경
+href,hostname,pathname,protocol,port,search
+
+grid

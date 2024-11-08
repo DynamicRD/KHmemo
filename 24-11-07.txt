@@ -1,0 +1,50 @@
+
+남의 프라이머리키를 가져와서 쓰는 게 포린키
+
+프라이머리키를 만들면 자동으로 인덱스를 만든다
+대시선으로 연결되면 비 식별자 관계 꽂힌쪽이 작은범주
+보통 1:N관계 
+IX 인덱스
+
+숫자함수
+ABS,FLOOR,GROUNDE,
+
+user_constraints로 제약조건 검색
+다른 테이블의 정보가 필요하면 이너쪼인을 시킴
+포린키와 다른테이블의 프라이머리키로 쪼인한다
+
+merge문 조건이 맞으면 insert 없으면 update
+
+select * from user_constraints;
+select * from user_tables;
+select * from user_cons_columns;
+
+무결성 제약조건
+NOT NULL,UNIQUE,PRIMARY KEY, CHECK,FOREIGN KEY,DEFAULT
+
+참조 무결성을 위한 FOREIGN KEY  제약조건
+참조의 무결성은 두 테이블 사이(사원테이블,부서테이블)의 주종관계에서 설정된다
+포린키 보유자 종, 프라이머리키 가져서 준애가 주
+
+ERD(논리적 설계) 네모-다이아-네모
+무결성 포린키 제약조건을 가지면 위같은 제약조건 관계가 생긴다
+이러면 조인 가능하다
+주-종 	1:1관계면 테이블 하나로 만든다
+	N:M관계면 중간에 테이블 하나를 만든다
+
+테이블 레벨 방식으로 제약조건 지정하기
+복합키(2개 합쳐야 프라이머리키)인경우에는 테이블 레벨로 지정해라
+PRIMARY KEEY(ENPNO,ENAME)
+
+DISABLE, ENABLE하지 않고 CASCADE로 비활성화한다
+
+1.삭제가 안될때 제약조건을 삭제한다
+2. 해당 포린키를 먹는 종을 지우고 주를 제거한다
+화살표 함수 트리거
+
+옵션 5가지가 있다
+NO ACTION	참조테이블에 변화가 있어도 조치를 취하지 않음
+CASCADE		참조테이블의 내가 수정되면 자식도 수정한다
+SET NULL		내가 삭제되면 삭제된 튜플은 널로 바꿈
+SET DEFAULT
+RESTRICT

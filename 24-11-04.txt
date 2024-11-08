@@ -1,0 +1,119 @@
+DB
+=========================================
+오라클 설치
+https://www.oracle.com/kr/database/technologies/xe-downloads.html
+sql developer(Windows 32-bit/64-bit)
+https://www.oracle.com/database/sqldeveloper/technologies/download/
+
+SQL Plus 실행
+system-비번
+혹은 cmd관리자 sqlplus "/ as sysdba"로 실행
+
+SQL Plus는 데이터베이스가 들어갈 길을 도스로 나타냄
+create user c##scott identified by tiger;
+grant dba to c##scott;
+connect c##scott/tiger
+
+외부에서 데이터베이스 접속하기 위한 설정
+EXEC DBMS_XDB.SETLISTNERLOCALACCESS(FALSE);
+
+https://github.com/oracle-samples/db-sample-schemas/releases/tag/v21.1들어가서 받고 
+C:\oraclexe\dbhomeXE\demo\schema에 복사붙여넣기
+main의 5번 내리면 
+@_SUB_CWD_/human_resoures/hre_cre를
+@?/demo/schema/human_resoures/hre
+=================================
+sql plus 키고
+
+ alter session set "_ORACLE_SCRIPT"=true;
+
+SQL> @?/demo/schema/human_resources/hr_main.sql
+
+specify password for HR as parameter 1:
+1의 값을 입력하십시오: hr
+
+specify default tablespeace for HR as parameter 2:
+2의 값을 입력하십시오: users
+
+specify temporary tablespace for HR as parameter 3:
+3의 값을 입력하십시오: temp
+
+specify password for SYS as parameter 4:
+4의 값을 입력하십시오: 123456
+
+specify log path as parameter 5:
+5의 값을 입력하십시오: C:/oraclexe/dbhomeXE/demo/schema/log/
+
+specify connect string as parameter 6:
+6의 값을 입력하십시오: localhost:1521/xe
+===============================
+오라클 개요
+RDBMS
+3장 1p
+테이블 명을 클래스 명으로 봐라, 칼럼명은 멤버변수(attribute,field,item,column)로 봐라
+값이 들어간 로우를 인스턴스(레코드)라고 한다.
+
+오라클에서 자료형은 5가지다(정수Number,문자열varchar2,데이트,데이트타임,비 블롭)
+DB는 프로젝트명(데이터베이스)
+테이블(클래스)마다 primart key가 하나 있다
+
+SQL(Structured Query Language): DBMS가 소통핫기 위한 언어
+
+DDL(Data Definition Language)데이터 정의어:
+	Create:	객체 생성
+	Alter:	객체 내용을 수정
+	Truncate	테이블 데이터 모두 삭제(클래스의 객체들 삭제)
+	Drop:	객체 영구삭제
+
+DML(Data Manipulation Language)데이터 조작어
+	Select:	테이블 데이터 조회	
+	Insert:	클래스에서 new 한거(데이터추가)
+	Update:	테이블 기존 데이터 변경
+	Delete:	테이블 저장 데이터 삭제
+
+DCL(Data Control Language)데이터 제어어
+	오라클에서 누구던지 객체나 클래스를 만들수 없다
+	Grant : 	권한을 준다
+	Revoke:	권한을 제거한다
+
+TCL(Transaction Control Language)트랜젝션 처리어
+	git같은거다
+	Commit:	변경내용 영구히 저장
+	Rollback: 변경데이터 적용안하고 되돌림
+	Savepoint:특정위치까지 영구히 저장 혹은 되돌릴수 있는 저장점을 만든다
+
+SELECT구조의 8가지 기능
+	1.from
+	2.where
+	3.group by
+	4.having
+	5.select
+	6.order by
+	
+	오라클의 번역 순서:퍽 왜 구 해 써 어
+
+SELECT * FROM (테이블명)
+
+블럭지정하거나 ctrl enter
+
+db에서의 null:	모든 타입 멤버변수에 값을 넣지않으면 null,나 값을 안가지고있어요
+		사칙연산 대입 등 불가
+
+도메인 제약조건:	값이 어캐 들어갈지 정함(도메인)
+		1.NOT NULL
+		2.PRIMARY KEY
+		3CHECK
+
+		number(4,5) 4자리, 소수점5자리 
+		최대 38자리
+1-7 연습문제 카페
+
+select department_id as "부서번호", department_name as "부서명" from departments;
+
+오라클에서 문자열 연결에 ||을 쓴다
+
+select '5' + 5 from dual;
+dual 가상테이블로 실행할때
+만약 dual대신 employees 쓰면 107번 출력한다
+
+select: 	조건에 맞으면 테이블의 구성 숫자만큼 실행한다

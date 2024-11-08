@@ -1,0 +1,108 @@
+DBMS(프로젝트)-테이블(클래스)-칼럼(멤버변수)-로우(뉴해서 만든객체)
+
+(NUMBER VARCHAR2 DATE) BELOV
+
+로우,레코드,인스턴스라고한다.
+칼럼,아이템,필드,어트리뷰트,프로퍼티라 한다 
+
+제약조건:	기본키(프라이머리키):절대 중복불가,null금지
+	유니크키:null가능
+	forgein키:다른클래스의 프라이머리키를 내 클래스의 멤버변수
+
+식별자, 비식별자:	상대방의 프라이머리키가 내 멤버변수로 들어오면 비식별자
+	상대방의 프라이머리키를 내 프라이머리키급으로 가져오면 식별자
+	(둘다 포린키다!)
+
+프라이머리키가 2개 필요하면 복합키
+
+쿼리문은 각각의 정의,조작,승인,정의이 있다
+
+DDL:CREATE(생성), ALTER(수정), TRUNCATE(데이터삭제), DROP(영구삭제)
+DNL:INSERT(추가), UPDATE(변경), DELETE(삭제), SELECT(조회)
+
+SELECT = 퍽 왜 구 해 써 어 from, where,group by, having,select,order by
+
+DCL: GRANT(권한을줌), REVOKE(권한제거)
+
+TCL:COMMIT(저장),ROLLBACK(롤백),SAVEPOINT(저장점)
+
+SELECT * FROM EMPLOYEES
+
+DISTINCT 한번씩 출력
+AS 별명 붙이기
+
++ : 산수
+|| : 문자열 더하기
+WHERE :
+SELECT A,B,C
+
+오라클에서 저장은 :=
+=은 서로 같다
+
+문자데이터 조회
+양옆으로 싱글 퍼텐셜 적는다
+
+날짜 데이터 조회
+Sele
+
+숫자-to_char( )->문자열->to_date( )->날짜-to_char( )->문자열-to_number( )->숫자
+
+select *  from employees where hire_date >= '2008/01/01';
+select *  from employees where  TO_CHAR(hire_date,'YYYY/MM/DD') >= '2008/01/01';
+select *  from employees where hire_date >= TO_DATE('2008/01/01','YYYY/MM/DD HH24:MI:SS');
+
+논리연산자는 문자로 쓴다
+NOT ~ =,!=,^=,<>
+
+BETWEEN A AND B연산자
+A와 B사이 출력
+
+IN 연산자
+column_name IN(234,346,22);
+
+LIKE연산자
+LIKE _A, _A%, A__ , _a__
+
+WHERE LOWER(job) LIKE LOWER('Sales%')
+          UPPER             UPPER
+NOT LIKE는 반대로
+
+NULL을 위한 연산자
+NULL은 연산,할당,비교가 불가능하다(isNULL, isNotNULL만가능
+AND , BETWEEN a AND b
+OR, IN( , ) 직원번호가 67,101,184인 사원
+NULL 연산,비교,할당 안된다.
+ORDER BY ASC, DESC 사번을 기준으로 오름차순으로 정렬
+
+그룹함수
+SUM,AVG,COUNT,MAX,MIN
+그룹바이는 전체를 그룹으로 두고 한거다
+기준점이 나오면 그룹바이를 해야한다
+
+문자함수
+LOWER(대문자로),UPPER(소문자로),INITCAP(앞글자 대문자로만든다),CONCAT(두문자 연결),
+SUBSTR(문자열 일부만 추출),SUMSTRB(한글3바이트),LENGTH(문자열길이구함),LENGTHB(3바이트)
+INSTR(위치를 찾아서 숫자 반환),INSTRB(특정문자위치값 반환),TRIM(특정문자열을 잘라냄),
+CONVERT
+
+숫자함수
+CEIL(올림),FLOOR(내림),ROUND(반올림),TRUNC(잘라냄)
+MONTHS_BETWEEN (date1,date2) 근속년수
+========================================================
+테이블 구조
+DDL에 속한다
+CHAR(size):	최대 2천자, 안쓴거 버린다 메모리낭비
+		주민번호같이 메모리낭비가 없는것은 이거를 쓴다
+VARCHAR2(size)	느린데 메모리 절약,유동적 크기 4천바이트
+NUMBER		22바이트,38자리 적기 가능
+NUMBER(3),NUMBER(6,3)자릿수
+BLOB:		사진, 이미지, 동영상
+
+DATE		날짜형식 저장하기위한타입
+TIMESTAMP	천분의 1초
+
+테이블 생성
+create TABLE STUDENT(
+	no NUMBER(4), 	 --제약조건 6가지가 붙는다
+);
+포린키가 가져오면 식별자 관계
