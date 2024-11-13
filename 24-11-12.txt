@@ -1,0 +1,29 @@
+테이블스페이스:	테이블이 저장할 공간을 생성,변경,삭제
+
+create tablespace 테이블스페이스명
+[datafile 데이터파일경로]
+==================================
+서브쿼리 : select를 해서 내가 원하는 임시테이블을 만든다
+	한번필터링 했다고 본다(필터링된 임시 테이블)
+
+단일행 서브쿼리(비교연산이 가능), 다중행 서브쿼리(in,any,all,exist)가 있다
+
+age in (10,20) 	=> age = 10 or age = 20;
+age not in (10,20) 	=> age <> 10 and age <> 20
+any = 1개 이상만 맞아도됨
+all = 전부 맞아야함
+exist = 존재하면
+
+inner join
+select first_name,department_name from departments d inner join employees e 
+    on d.department_id = e.department_id
+    where upper(first_name) = upper('Susan');
+
+다중행은 칼럼이나 로우가 복수면 
+서브쿼리 사용
+select department_id from employees where first_name = 'susan';
+select * from departments where department_id = 
+    (select department_id from employees where  first_name = 'Susan');
+as는 서브쿼리가 먼저 실행되기에 못쓴다
+
+테이블 복사할때 제약조건은 not null만 복사된다.
