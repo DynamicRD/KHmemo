@@ -1,0 +1,22 @@
+MVC 모델
+긴 코드 분석에 좋다, 조립식건물
+Model View Control
+모델: 테이블을 만들었을때 그에 맞는 클래스가 만들어지는것(package model class명+vo
+
+VIEW
+CONTROL
+
+Manager은 데이터를 가지고 있다가 삭제수정한다 view object로
+컨트롤러는 DAO와 Manager로 분류시킨다
+
+kr.co.kh.java
+	MVCProject
+kr.co.kh.java.controller
+	DBUtility
+	DAO
+	RegisterManager
+kr.co.kh.java.model
+	VO
+kr.co.kh.java.view
+	CURDMenu
+	Menu

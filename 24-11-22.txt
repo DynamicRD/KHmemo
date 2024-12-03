@@ -1,0 +1,2 @@
+read.me에 erd를 넣는다.
+테이블 지워지면 외래키는 set null로 해라

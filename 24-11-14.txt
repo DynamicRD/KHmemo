@@ -1,0 +1,43 @@
+PL/SQL
+	sql문장에서 변수정의,조건처리,반복처리등을 지원한다
+
+DECLARE
+	선언부
+	변수나 상수 선언
+BEGIN
+	실행부
+	SQL문
+	제어문,반복문
+	커서
+EXCEPTION
+	예외처리부
+END;/
+
+커서: 웹에선 레코드,리설트 셋이라고 한다
+	오라클에서 쿼리를 실행시키고 나온 결과물
+
+변수는 3개 CONSTANT 숫자 문자 변수
+
+대입연산자 :=
+	SELECT 문에 추출한 DATA는 INTO절의 변수에 저장해서 사용
+
+변수	identifier [CONSTANT
+스칼라변수/레퍼런스 변수:	
+	스칼라변수는 자료형 지정과 거의 비슷하다
+	레퍼런스변수 포인터 변수와 비슷하다
+	VEMPNO EMPLOYEES.EMPLOYEE_ID%TYPE;
+	VEMPNO EMPLOYEES%ROWTYPE;
+
+테이블타입은 배열이다
+	TYPE first_name_Table IS TABLE OF EMPLOYEES.FIRST_NAME%TYPE
+	INDEX BY BINARY_INTEGER;
+
+	FOR k IN (SELECT EMPLOYEE_ID,FIRST_NAME,JOB_ID FROM EMPLOYEES) LOOP
+	I := i + 1;
+레코드타입 
+
+LOOP
+	BASIC LOOP
+	FOR LOOP
+	WHILE LOOP
+	EXIT

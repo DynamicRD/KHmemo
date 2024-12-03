@@ -1,0 +1,17 @@
+자바 오라클 연동에서
+stmt.executeUpdate()에서 쿼리 명령문을 입력할시
+오타가 나서 문제가 생길수도 있다
+그래서 필요한게
+
+2단계. PreparedStatement
+String sql = "select age from test1 where id=?"
+PreparedStatement pstmt = con.preparedStatement(sql);
+pstmt.setString(1,"syh1011");
+ResultSet rs = pstmt.executeQuery();
+
+바인딩 변수 ?
+
+3단계.CallableStatement
+프로시저와 함수를 자바로 부른다
+
+시퀀스,프로시저,함수

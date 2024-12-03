@@ -1,0 +1,29 @@
+https://github.com/ChaeHyunWoo/SpringBoot-Project-MEGABOX
+
+공공데이터
+-공공데이터포털 이용
+
+start line		url 주소가 들어감
+message header	클라이언트 정보가 들어감
+message body	post방식일때 포함해서 보낸다
+
+select 하나만 하면 된다
+XML방식으로 <key값><value값> 순서
+미리보기 -> 주소 복사
+https://apis.data.go.kr/1613000/BusSttnInfoInqireService/getSttnNoList?
+	serviceKey=MibYVEaQtKoywvZOoMoIiDj8b%2FgU91UDXtzeYMrZeXi199anQMeT0svDixHPTfbCiZhNcsvlbCU7jKwI%2Bqkgfg%3D%3D
+	&pageNo=1&numOfRows=10&_type=xml&cityCode=25&nodeNm=%EC%A0%84%ED%86%B5%EC%8B%9C%EC%9E%A5&nodeNo=44810
+
+MibYVEaQtKoywvZOoMoIiDj8b%2FgU91UDXtzeYMrZeXi199anQMeT0svDixHPTfbCiZhNcsvlbCU7jKwI%2Bqkgfg%3D%3D
+
+&단위로 &변수명 = 키값
+_ _언더바 2개는 시스템에서 쓴다는표시(쓰지말것)
+url은 숫자가 아니고 전부 문자고, url에는 "가 없다
+
+StringBuilder: 문자열이 계속 생성될때 String 대신 써라
+
+전송방식 : get,	put,	post,	delete
+	select	update	insert	delete
+
+요청전송, 응답처리?(200~300: 정상,403:권한설정, 404: 페이지찾기힘듬,405: 인증안됨,500:서버에서 예외처리발생);
+

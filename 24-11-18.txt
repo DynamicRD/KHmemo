@@ -1,0 +1,31 @@
+프로시저는 리턴값 말고 OUT으로 값 전달
+
+트리거:	이벤트가 발생하면 다른작업이 자동으로 처리됨
+	INSERT UPDATE DELETE가 발생하면
+
+CREATE OR REPLACE TRIGGER
+AFER(BEFORE) (INSEER/UPDATE/DELETE) ON 테이블명
+BEGIN
+
+END;
+/
+
+FOR EACH ROW( DELETE에선 문장 지워질때 마다 실행)
+
+:NEW & :OLD
+	INSERT문에서 입력된 컬럼의 값은 :NEW
+	DELETE에서 삭제되는 컬럼값은 :OLD
+	UPDATE문의 경우 변경전 컬럼데이터값은 :OLD
+		수정할 새로운 데이터값은 :NEW
+
+갱신 트리거
+
+FUNCTION : CHAR,NUMBER,DATE만 RETURN으로 반환 가능
+
+--순위함수 RANK, DENSE_RANK
+
+RANK() OVWE (ORDER BY SALARY DESX) RANK
+DENSE_RANK() OVER (ORDER BY SALARY DESC)DENSE_RANK
+
+페이징
+NUM_PAGE_NO = 2 

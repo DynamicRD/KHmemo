@@ -1,0 +1,16 @@
+PRAGMA 키워드
+
+DECLARE
+	PRAGMA AUTONOMOUS_TRANSACTION;
+
+자바와 오라클 연동
+JDBC 다운로드
+h (SQLException e) {
+				System.out.println("5.con close 실패"+e.toString());
+			}
+		}
+	}
+	
+
+}
+

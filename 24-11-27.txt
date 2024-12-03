@@ -1,0 +1,14 @@
+https://github.com/ChaeHyunWoo/SpringBoot-Project-MEGABOX
+
+공공데이터
+-공공데이터포털 이용
+
+start line
+message header
+message body
+
+select 하나만 하면 된다
+XML방식으로 <key값><value값> 순서
+미리보기 -> 주소 복사
+https://apis.data.go.kr/1613000/BusSttnInfoInqireService/getSttnNoList?serviceKey=MibYVEaQtKoywvZOoMoIiDj8b%2FgU91UDXtzeYMrZeXi199anQMeT0svDixHPTfbCiZhNcsvlbCU7jKwI%2Bqkgfg%3D%3D&pageNo=1&numOfRows=10&_type=xml&cityCode=25&nodeNm=%EC%A0%84%ED%86%B5%EC%8B%9C%EC%9E%A5&nodeNo=44810
+
