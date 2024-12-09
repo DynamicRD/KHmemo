@@ -1,0 +1,57 @@
+jsp 컨테이너가 제공하는 기본객체 9가지
+request : 서블릿,jsp를 요청했을때 서블릿컨테이너가 만들어줌 , response 보내면 종료
+	스타트라인, 메시지헤더,메시지 바디(post로 요청했을때 사용자가 입력한정보,getParameter로 읽어옴)
+	uri,컨텍스트 정보 중요?
+	getParameter
+
+enum 클래스에 번호를 붙인다
+enum Day{
+  	MONDAY,TUESDAY,WHENSDAY
+}
+1,2,3번이 된다
+Enumeration enumData = request.getParameterNames( );
+//enum 데이터가 존재하나 enumData.hasMoreElements( )
+
+웹브라우저는 서버가 세션 요청하면 
+
+웹브라우저는 페이지 요청할때마다 자기속의 쿠키값과 세션아이디를 헤더에에 항상 포함해서 보내준다.
+
+세션은 웹브라우저가 웹서버에 처음으로 접속요청할때 
+서버는 세션객체를 만들어서 웹브라우저에 리스폰스할때 쿠키값에 넣어서 넘겨줌
+브라우저 30분 기다라기, 웹브라우저 종료하면 사라짐
+=========================================================================
+reponse :  서블릿,jsp를 요청했을때 서블릿컨테이너가 만들어줌 , response 보내면 종료
+
+	sendRedirect sendContentType outputStream writer
+
+=========================================================================
+pageContext : 모든 객체를 부를수가 있다.
+		HttpSevletResponse
+
+ServletRequest
+SErvletResponse
+HttpSession
+pageContext
+=====================================
+application : 서버 시작하면 생성, 닫으면 종료
+
+어플리케이션 - 모든곳에서 가져올수 있다
+<context-param>
+ <param-name>name</param-name>
+ <param-value>dong jin</param-value>
+</context-param>
+<%
+ Enumeration enumData = application.getInitParameterNames();
+ while (enumData.hasMoreElements()) {
+ String initParamName = (String)enumData.nextElement();
+%>
+<li><%= initParamName %> = <%= application.getInitParameter(initParamName) %>
+<%
+ }
+%>
+=============================
+Request(forward만) HttpSession ServletContext 데이터를 전달할 수 있다.
+
+requestDispatcher = forward
+
+메인페이지,게시판,공지사항, 로그인,
