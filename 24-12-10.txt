@@ -1,0 +1,30 @@
+action tag와 java beans
+
+html 코드에서 자바코드 쓰기 싫어서 만들었다
+JSP 액션 태그(선택사항)
+<jsp:param name="파라미터 변수" value="값"/>
+
+<jsp:forward>
+
+request.getContextPath() 절대경로라서 쓰는게 좋다
+
+<jsp:useBean>	액션태그
+<jsp:setProperty>	액션태그 : 빈의 속성에 값을 설정하는 태그
+VO를 정의해서 쓴다
+
+Connection Pool
+클라이언트와 DB가 거리가 멀면 12초이상 걸린다(뉴욕)
+그래서 아마존이 데이터 센터를 설립해서 
+컬렉션 프레임워크에서 서버를 20개 넣어둔다
+
+final class 상속받지말라
+static 변수 싱글톤패턴
+
+Connection Pool xml을 이용해서 사용 쉽다
+try {
+            Context contect = new InitialContext(); 
+            DataSource ds = (DataSource)contect.lookup("java:comp/env/jdbc/myOracle");
+            con = ds.getConnection();
+        } catch (Exception e) {
+            e.printStackTrace(); 
+        }
