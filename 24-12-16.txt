@@ -1,0 +1,30 @@
+쿠키값
+
+웹브라우저가 요청하면 웹서버가 쿠키폴더에 쿠키 생성
+다음번에 요청할시 저장된 쿠키정보가 같이 실려감
+
+쿠키는 특정 웹 사이트에 접속할때 생성되는 정보로 크기는 4kb덩조
+웹브라우저에 쿠키거부기능이 있으면 마찰이 일어날 수 있다
+
+쿠키의 구성요소
+이름,값,유효시간,도메인,경로
+쿠키 이름은 알파벳과 숫자만 써라
+
+Cookie[] cookies = request.getCookies( );
+
+쿠키는 기본적으로 웹사이트를 닫으면 죽고, 유효시간을 설정할 수 있다.
+유효시간을 0으로 설정해서 없애버릴수도 있다
+
+서버에서 화면을 체인지시키는 방법
+metatag쓰는 프레시,history go(-1),send redirect, foward, location.href
+
+데이터 전송시키는 방법
+get,post,a,onClick
+
+서버가 데이터보내기
+requset,session,application
+
+세션
+<%
+ session.setMaxInactiveInterval(10 * 60);
+%>

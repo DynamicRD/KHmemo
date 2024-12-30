@@ -1,0 +1,59 @@
+opener 팝업창이 메인창을 안다
+
+모델 1방식을 2방식으로 바꾼다
+
+==모델1방식을 바꾼다(Lazy Loading) 우리가 요청할 때 new 만드는 방식==
+1.서블릿을 활용할때
+	컨트롤러, 화면 : Servlet(사용자 요청, 데이터베이스 연결요청,화면구현(자바코드안에 html구현)
+	모델: ~DAO ~VO
+	공통: connection
+===============================================================
+2. Jsp(서블릿)을 활용할 때
+	컨트롤러, 화면 : jsp(사용자 요청, 데이터베이스 연결요청,화면구현(순수html)
+	모델: ~DAO ~VO
+	공통: connection
+==============================================================
+
+==모델2방식을 바꾼다(Lazy Loading) 우리가 요청할 때 new 만드는 방식==
+1. 서블릿과 jsp모두 사용한다
+	서블릿:(컨트롤러: 사용자 요청만 받는다),데이터베이스 연동
+	jsp: 뷰만 담당한다.(자바코드가 없다)
+	모델: ~DAO ~VO
+===================================================
+
+==스프링컨테이너 방식으로 바꾼다(MVC2 모델: PRE Loading)
+	미리 객체를 만드는데 어떻게 만드냐(web.xml, @annotation 만드는방법)
+
+@Controller
+@RequestMapping("/member")
+public class MemberController{
+	//데이터베이스 연동
+	@Autowired
+	private MemberDAO memberDAO;
+	//사용자 요청
+	@GetMapping("/selectMember")
+	Public String selectMember(MemberVO vo){
+		ArrayList<StudentVO> svoList = memberDAO.selectDB( );
+		화면으로 foward 방식으로 전달 
+	}
+	@PostMapping("/insertMember")
+	Public String insertMember(MemberVO vo){ }
+	@RequestMapping("/deleteMember")
+	Public String deleteMember(MemberVO vo){ }
+	@RequestMapping("/updateMember")
+	Public String updateMember(MemberVO vo){ }
+}
+
+@Repository("mdao")
+public class MemberDAO( ) {
+	private final String SELECT_SQL = "SELECT * FROM Member";
+	public ArrayList<ZipCodeVO> selectDB(ZipCodeVO zvo) { }
+}
+
+=====================================================
+인터페이스
+
+AJAX는 데이터를 보내줘야한다
+
+@RestController
+@CrossOrigin

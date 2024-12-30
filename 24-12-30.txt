@@ -1,0 +1,100 @@
+================================================
+Node.js
+자바스크립트를 웹브라우저 없이 실행시켜주는 구동기
+서버역할을 해준다
+
+리액트 : html css javascript를 편리하게 다루게해주는 도구
+
+모듈 : 함수
+모듈을 구조분해할당으로 가져와라
+import {add,sub} from './math.js' 이렇게 가져온다
+
+모듈과 컴포넌트의 차이점 
+html태그를 리턴하면 컴포넌트
+일반 함수식이면 모듈
+
+package.json 만 관리하면 모든 정보를 관리할 수 있다
+node_modules는 관리안하고 패키지만 올린다
+================================================
+================================================
+React.js
+리액트는 컴포넌트 UI라이브러리이다
+화면업데이트 구현이 쉽다
+화면업데이트가 빠르게 처리된다
+
+state : jsp에서 include 같은 거
+원래 컴포넌트는 클래스였는데 함수식으로 바뀜
+
+리액트 훅스(20개 정도)
+원래 클래스 버전에 있었던 기능을 함수 버전으로 가져와서 사용한다
+import, 구조분해할당으로
+대표적으로 use state
+
+브라우저의 렌더링 과정
+
+HTML	---> DOM
+   I	          I
+JavaScipt	      Render Tree 	---> Layout   ---> Painting
+	          I
+CSS	---> CSSOM
+
+Virtual DOM
+리액트는 업데이트가 발생하면 실제 DOM을 수정하기전에 먼저 방여하는 가상의 복제판 DOM
+Layout Painting 수많은 호출을 막는다
+innerHTML = <a> </a>사이
+
+자바스크립트 하나당 컴포넌트 한개를 지켜주자
+
+jsx표기법
+el표기법과 비슷하다
+중괄호 안에는 자바스크립트 표현식만 넣을 수 있다
+if,for,true,undefined,null,객체는 랜더링이 안된다
+삼항연산자는 가능하다
+
+Props(properties) 컴포넌트에 값 전달하기	--매개변수
+함수컴포넌트에 매개변수로 값 전달하기
+Button("메일","mail.png")로 전달해야하는데 html에서는 불가능
+<Button text={"메일"} img={"mail.png"}/>
+객체로 받는다?
+
+useState 받는 방법
+import {useState} from 'react';
+const [count,setCount] = useState(0);
+쓸땐 count
+useState()는 키값과 밸류값을 준다
+
+State를 Props로 전달하기			--변수
+자신의 컴포넌트가 관리하는 state가 변화가 있을때 랜더링 변화
+자신이 제공받는 Propㄴ 변화가 있으면 랜더링 변화
+부모 컴포넌트 랜더링이 발생하면 모든 자식 컴포넌트는 랜더링발생
+
+랜더링을 최소한으로 줄이자
+자식 컴포넌트에 모든 useState 요소를 집어넣는다
+
+컴포넌트가 리랜더링이 되면 일반 변수에 저장된값은 모두 사라진다
+useState를 쓰면 랜더링이 되도 값이 살아있다
+
+전개연산자에 같은게있으면 뒤의 값으로 덮어씌워진다
+
+useRef
+안에 current객체가 있어서 거기에 받은걸 저장한다.
+useRef(매개변수)
+
+1.use 훅스는 함수컴포넌트 내에서만 사용한다
+2.조건문 반복문 안에서 호출하면 안된다
+
+Props 는 형제 , 자->부 전달 불가
+
+리액트에는 class="" 리 리절브네임이라 못쓴다
+className 쓴다
+
+리액트의 핵심은 리랜더링을 최소화시켜서 속도를 높이는거다
+
+React App LifcycleMethod
+Mount-Update-UnMount
+(init)-(service,doget,dopost)-(destroy)
+===================================
+useEffect(( ) => { },[ ] );	마운트될때 1번 실행
+useEffect(( ) => { });	마운트될때 1번 실행,모든 state update
+useEffect(( ) => { },[count] ); 	마운트될때 1번 실행,count update 될때
+useEffect(( ) => { return ( )=>{} },[]);	마운트 언마운트될때

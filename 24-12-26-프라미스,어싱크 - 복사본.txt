@@ -1,0 +1,74 @@
+
+===================================
+자바스크립트
+
+동기화와 비동기화
+
+동기화: 한개의 스레드 안에서 여러개의 작업을 하나씩 처리하는 방식
+
+비동기화: 여러개의 스레드가 있어야한다.
+
+웹브라우저(자바스크립트)는 스레드가 하나라 비동기화처리가 안된다 
+그래서 비동기 작업은 web apis에 위탁을 한다
+
+(setTimeout( ( ) =>{ console.log(2);}, 3000 ); )
+(setInterval( ? , ? );)
+
+핸들러함수 == 콜백함수
+
+콜백함수가 콜백함수를 부르고....
+//1단계 음식을 만들어달라고 주문하는 상황
+function orderFood(food,callback){
+    console.log(food+"음식 주문 ");
+    setTimeout(()=>{
+        callback(food);
+    },3000);
+}
+
+//1단계 음식을 차게 주문하는 상황
+function coolFood(food,callback){
+    console.log(food+" 음식 차게 주문");
+    setTimeout(()=>{
+        callback(food);
+    },2000);
+}
+
+//1단계 음식을 냉동 주문하는 상황
+function freezeFood(food,callback){
+    console.log(food+" 음식 냉동 주문");
+    setTimeout(()=>{
+        callback(food);
+    },3000);
+}
+
+orderFood('떡볶이',(food)=>{
+    console.log(food + "음식 제작 3초후 완성");
+    let food2 = `뜨거운 ${food}`;
+    coolFood(food2,(food2)=>{
+        console.log(food2 + "음식 차게 2초후 완성");
+        let food3 = `차가운 ${food2}`;
+        freezeFood(food3,(food3)=>{
+                 console.log(food3 + "음식 냉동 3초후 완성");
+            })
+    })
+});
+
+=============================================
+Promise 객체
+멀티스레드로 이루어질수 있는 장점들이 다 있다
+병렬실행 상태관리 결과 저장
+
+Promise의 3가지 상태
+대기(Pending), 성공(Fullfilled), 실패(Rejected)
+
+==async
+함수를 비동기함수로 만들어주는 키워드
+
+================================================
+Node.js
+자바스크립트를 웹브라우저 없이 실행시켜주는 구동기
+서버역할을 해준다
+
+리액트 : html css javascript를 편리하게 다루게해주는 도구
+
+모듈 : 함수

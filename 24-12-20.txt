@@ -1,0 +1,19 @@
+JSTL
+jsp에서 자바코드를 다 없애버리겠다
+1.변수 2.객체 3.제어문 4.반복문
+
+다 태그로 바꿨다
+코어(변수지정,흐름제어,URL관리) : c
+국제화(지역,메시지형식,숫자날짜형식): fmt
+함수(컬렉션처리 String 처리): fn
+
+c
+변수선언 set 변수삭제 remove
+if(if) chose(select)
+
+<c:set var="user" scope="session" value="cow"/>
+String user="cow"가 session으로 들어감
+scope를 안쓰면 서비스 지역변수
+var대신 target 쓰면 객체(자바빈즈,vo,Map)
+property -> 자바빈이면 멤버변수이름, 맵이면 키값
+

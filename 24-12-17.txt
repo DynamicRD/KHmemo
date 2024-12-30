@@ -1,0 +1,53 @@
+파일업로드 원리
+post방식이어야한다
+
+지금까지 데이터는 문자로 보냈다
+근데 파일은 바이너리 2진법
+
+enctype으로 7가지 형식을 지정해서 보낸다
+
+COS inputStream outputStream 대신에 파일을 편하게 전송하는 방법
+
+MultipartRequest 5개의 매개변수
+request, 저장경로, 받을 post 사이즈, 인코딩타입, 이름 바꾸는 정책
+메소드
+getParameter, getFileSystemName,
+===============================================
+	<form name="filecheck" action="fileCheck.jsp" method="post">
+		<input type="hidden" name="name" value="<%=name%>"> <input
+			type="hidden" name="subject" value="<%=subject%>"> <input
+			type="hidden" name="filename1" value="<%=filename1%>"> <input
+			type="hidden" name="filename2" value="<%=filename2%>"> <input
+			type="hidden" name="origfilename1" value="<%=origfilename1%>">
+		<input type="hidden" name="origfilename2" value="<%=origfilename2%>">
+	</form>
+	<a href="#" onclick="javascript:filecheck.submit()">
+form형식인걸 감추고 앵커를 쓰면서 get말고 post방식으로 보내는 방법
+--------------------------------------------------------------------------
+getOriginalFileName 말고 getFilesystemName로
+
+자카르타 FileUpload API는 외장하드 경로에도 지정할 수 있다
+=========================================
+
+표현언어
+① JSP의 네 가지 기본 객체가 제공하는 영역의 속성 사용(request,session,application,page)
+② 집합 객체에 대한 접근 방법 제공
+③ 수치연산, 관계연산, 논리연산자 제공
+④ 자바 클래스 메소드 호출 기능 제공
+⑤ 표현 언어만의 기본 객체 제공
+${person.name}
+${pesron["name"]}
+클래스.(getName) 생략
+request.setAttribute("customer", customer);해야 가져올수 있다
+
+EL이 제공하는 11개의 기본객체
+requestScope : request 기본객체에 저장된 속성의 <속성,값> 매핑을 지정한 Map객체
+session,application 위에대입
+param	:	request.Parameter(이름) 과 동일하다
+일반 시스템 라이브러리는 바로 못쓴다
+============================================
+Model2 방식
+MVC패턴 적용, Model-View-Controller로 나누어서 개발
+Model은 비즈니스 로직을 담당, 비즈니스로직을 UI(View)로부터 분리
+View는 Client가 사용하는 부분, Model에서 생성된 Data를 client에게 보여주는 역할 담당. 웹에서는 JSP가함
+Controller는 사용자의 요청을 받아서 요청에 해당하는 비즈니스로직 수행, 응답을 client에게 전달. 웹에서는 서블릿이한다.

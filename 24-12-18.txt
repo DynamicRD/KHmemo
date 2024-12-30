@@ -1,0 +1,19 @@
+Model2 방식
+MVC패턴 적용, Model-View-Controller로 나누어서 개발
+Model은 비즈니스 로직을 담당, 비즈니스로직을 UI(View)로부터 분리
+View는 Client가 사용하는 부분, Model에서 생성된 Data를 client에게 보여주는 역할 담당. 웹에서는 JSP가함
+Controller는 사용자의 요청을 받아서 요청에 해당하는 비즈니스로직 수행, 응답을 client에게 전달. 웹에서는 서블릿이한다.
+
+view controller model 에서 controller를 분리
+
+ControlServlet(서블릿) -> ActionFactory(클래스) -> Action(insert,list,info)(클래스) -> ActionForward
+
+ Action(insert,list,info)에는 인터페이스가 정의되어있다.
+
+1. ControlServlet이 지시를 해서 ActionFactorys는 Action(insert,list,info)객체를 만들고 Action값을 리턴해서 ControlServlet에 전달한다
+
+2. ControlServlet이 받은 Action에 값을 넣으면 Action을 오버라이드한 (insert,list,info)action들을 실행. request에 넣어서 ControlServlet에 다시 전달
+
+3. ControlServlet가 action이 보낸 방식을 (forward,sendRedirect)인지 판단해서 view에 전달한다.
+
+ (insert,list,info)action의 리턴값은 ActionForward 이다
