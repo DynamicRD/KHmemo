@@ -1,0 +1,36 @@
+ <Editer oneInsert={oneInsert} 이렇게 보내고
+매개변수 props로 받는다
+
+자식에서 작업하는거는 부모로 올려보낼수 없다
+그래서 부모가 자식한테 useState로 만든걸 props로 보낸다
+
+자식에서 새로 데이터를 만들고 setTodos로 값을 넣는다
+
+Filter와 Map 차이
+조건에 맞는 객체만 걸러냄
+
+Map
+.map((object, index, array) => { };
+구분할수 있는 유일할 키값을 꼭 주어야한다
+
+=======================================
+useReducer
+
+useState는 컴포넌트안에 선언해야해서 코드가 복잡해진다
+그래서 함수를 밖에다 빼려고 만들었다
+const [todos,dispatch] = useReducer(reducer);
+
+
+state에 0값을 전달?
+
+useState인 경우
+const [ state, setState] = useState({count});
+const onChangeState = ( ) = > { };
+
+1. useState대신 useReducer로 적자
+2. reducer(onChangeState)를 컴포넌트 밖에 적자
+3,4. const [state, dispatch] = useReducer(reducer, { count: 0 }); state값이 count
+5.<button onClick={() => dispatch({ type: 'increment' })}>Increment</button> 액션을 디스패치
+=======================================
+useMemo
+불필요한 연산방지
