@@ -1,0 +1,168 @@
+ <Editer oneInsert={oneInsert} 이렇게 보내고
+매개변수 props로 받는다
+
+자식에서 작업하는거는 부모로 올려보낼수 없다
+그래서 부모가 자식한테 useState로 만든걸 props로 보낸다
+
+자식에서 새로 데이터를 만들고 setTodos로 값을 넣는다
+
+Filter와 Map 차이
+조건에 맞는 객체만 걸러냄
+
+Map
+.map((object, index, array) => { };
+구분할수 있는 유일할 키값을 꼭 주어야한다
+
+=======================================
+useReducer
+
+useState는 컴포넌트안에 선언해야해서 코드가 복잡해진다
+그래서 함수를 밖에다 빼려고 만들었다
+const [todos,dispatch] = useReducer(reducer);
+
+
+state에 0값을 전달?
+
+useState인 경우
+const [ state, setState] = useState({count});
+const onChangeState = ( ) = > { };
+
+1. useState대신 useReducer로 적자
+2. reducer(onChangeState)를 컴포넌트 밖에 적자
+3,4. const [state, dispatch] = useReducer(reducer, { count: 0 }); state값이 count
+5.<button onClick={() => dispatch({ type: 'increment' })}>Increment</button> 액션을 디스패치
+=======================================
+useMemo
+불필요한 연산방지
+
+ = useMemo( ()=>{return{ }; },[todos]); 	//todos발생때만 변경
+===========================================================
+복습
+Node.js 
+자바스크립트를 웹브라우저없이 구동하기 위한 구동기
+
+모듈과 컴포넌트
+둘다 함수기능을 갖는 클래스(혹은 함수)
+모듈은 실행(처리문들을 관리), 컴포넌트는 html쪽을 리턴해주는 기능을 한다
+
+자바스크립트의 모듈
+common모듈, ESM모듈 시스템
+만들고 export 한다.
+
+다른사람이 만든 노드 모듈을 사용할 수 있다
+npm i하면  dependencies에 있는것들을 설치한다
+
+리액트
+리액트 컴포넌트는 UI라이브러리이다 
+자바스크립트를 jsx확장자로 집어넣는다
+화면업데이트 구현이 쉽고 빠르다. (랜더링, 리랜더링)
+딱 index.html 한페이지밖에 없다.(싱글페이지 어플리케이션)(기존껀 멀티페이지 어플리케이션)
+
+라우팅은 main.jsx를 바꿔서 화면전환을 시킨다
+
+리액트 훅스
+클래스로 되어있는 컴포넌트를 함수처럼 쓰기
+앞에 use가 붙어있다
+
+useState
+값과 setters가 있다,
+값이 바뀌면 해당 컴포넌트드를 리랜더링된다
+setters로만 값을 바꿀 수 있다
+화면구조가 DOM구조라 변화가 쉽다 (버추얼 돔 구조:코드를 개떡같이 짜도 알아서 줄인다)
+
+Props 컴포넌트에 값 전달하기
+
+useContext <- 세션같은것
+provider로 주고 consumer로 받는다
+
+리랜더링을 하는 3가지
+자신의 state가 값이 변화가 일어날때
+자신이 제공받는 Props값 변화가 있을때
+부모컴포넌트 랜더링이 발생하면 모든 자식은 랜더링이 발생한다
+
+컨텐츠도 prop로 전달하는데 children으로 자식이 받는다
+
+useEffect( ( ) =>{ }, [ ] ) 
+마운트 실행할때만 (처음만)
+useEffect( ( ) =>{ } ) 
+마운트 실행할때 + 모든 state 업데이트될때
+useEffect( ( ) =>{ }, [count] ) 
+마운트 실행할때 + count 업데이트될때
+useEffect( ( ) =>{ }, return ( ) =>{ }  ) 
+마운트 실행할때 + 언마운트 할때)
+
+마운트 목업데이터를 가져올때
+언마운트 작업데이터를 DB로 보낼때
+
+useRef를 사용하면 플래그처럼 써먹을수 있다
+
+useReducer을 사용하면
+useState와 비슷하다
+대신 복잡한 상태관리를 컴포넌트 밖에서 사용할 수 있다
+
+dispatch로 정의한 값을 액션으로 옮긴다
+
+useMemo(최적화)
+컴포넌트 내부의 불필요한 연산방지	->	리랜더링 할 필요가 없다(근데 부모가 바뀐다)
+	"        불필요한 함수 재생성 방지
+	"        불필요한 리랜더링 방지
+============================================
+React.memo(고차 컴포넌트)
+부모가 리랜더링이 발생하더라도 랜더링을 하지 않음(Props전달이나 state변경은 받는다)
+useMemo는 함수, memo는 컴포넌트
+
+import memo하고 export default memo(컴포넌트명);
+
+랜더링이 발생하면 함수(이벤트핸들러처리)도 지우고 새로 만든다
+그래서 메모처리해도 함수를 Props로 받으면 리랜더링이 발생한다.
+함수 무한생성을 막는게 useCallback
+
+그 외의 방법으론 메모한테 옵션을 줘야한다
+
+useCallback
+const 함수 = useCallback( ( ) => { } , [ ] );
+=============================================
+React Context
+session같은것, props 드릴링 방지
+Context에 저장해놓고 필요한데서 가져다 쓴다
+Context는 여러개 여러군데에 데이터를 남길 수 있다
+setters ---> Provider
+getters ---> Consumer
+
+App.jsx
+import createContext,
+export const TodoContext = createContext();
+<TodoContext.Provider value={{ todos, onInsert, onUpdate, onDelete }}>
+      <Editer />
+      <List />
+</TodoContext.Provider>
+
+List.jsx
+import useContext
+import TodoContext
+const { todos } = useContext(TodoContext);
+useCallback으로 방어한거 리랜더링되는 문제점이 있다
+그래서 	TodoStateContext로 불변값을 넣고
+	TodoDispatchContext로 변하는 값을 넣는다
+
+=================================================
+라우팅 -여러 페이지를 한페이지로 작동시켜라
+종합프로젝트 준비
+
+기존방식 MPA: multi page application	:	미리 html들을 준비해서 전달해줌
+
+1단계: 페이지요청하면 index.html 클라이언트 웹브라우저에 전달한다.
+2단계: 그리고 이어서 js 파일을 Bundle JS File 을 묶어서 보낸다.(Vite 담당)
+3단계: 웹브라우저는 전달받은 번들링 js File을 랜더링해서 화면에 보여준다. 그리고 번들링 js File를
+React App 라고 부르기도 한다.
+4단계 : 새로운 페이지에 필요한 컴포넌트는 리액트 앱에서 서버에 요청하지 않고 자체에서 실행한다.
+
+클라이언스사이드랜더링
+
+라우팅 : 모든 페이지를 빠르게 교차시키면서 진행시켜주는 라이브러리
+
+리액트 프로그램 개발순서
+1.라우팅 생성
+2.공동컴퍼넌트 생성
+3.각자페이지에 화면설계
+4.기능을 만든다
