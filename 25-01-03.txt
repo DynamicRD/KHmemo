@@ -1,0 +1,42 @@
+
+=================================================
+라우팅 -여러 페이지를 한페이지로 작동시켜라
+종합프로젝트 준비
+
+기존방식 MPA: multi page application	:	미리 html들을 준비해서 전달해줌
+
+1단계: 페이지요청하면 index.html 클라이언트 웹브라우저에 전달한다.
+2단계: 그리고 이어서 js 파일을 Bundle JS File 을 묶어서 보낸다.(Vite 담당)
+3단계: 웹브라우저는 전달받은 번들링 js File을 랜더링해서 화면에 보여준다. 그리고 번들링 js File를
+React App 라고 부르기도 한다.
+4단계 : 새로운 페이지에 필요한 컴포넌트는 리액트 앱에서 서버에 요청하지 않고 자체에서 실행한다.
+
+클라이언스사이드랜더링
+
+라우팅 : 모든 페이지를 빠르게 교차시키면서 진행시켜주는 라이브러리
+
+리액트 프로그램 개발순서
+1.라우팅 생성
+2.공동컴퍼넌트 생성
+3.각자페이지에 화면설계
+4.기능을 만든다
+
+라우트 기본
+<Routes>
+        <Route path="/" element={<Home />}></Route> 
+        <Route path="/new" element={<New />}></Route>
+        <Route path="/diary" element={<Diary />}></Route>
+        <Route path="/edit" element={<Edit />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
+</Routes>
+======================
+Link
+<Link to={"/"}>Home/</Link>
+a href보다 훨씬 빠르다
+
+동적 라우팅
+/:id
+useParams	->	:id의 값이 넘어온다
+쿼리스트림은 useSearchParams
+
+이미지 용량작은건 asset, 큰건 public
